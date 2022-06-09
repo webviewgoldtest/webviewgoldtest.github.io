@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Data Collection</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>Data Collection</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <button id="useragent" class="button">useragent</button><br><br>
+        <script>
+            var useragent = document.getElementById('useragent')
+            useragent.addEventListener('click', function(){
+            alert(navigator.userAgent);
+            });
+        </script>
+
+        <button id="headers" class="button">page headers</button><br><br>
+        <script>
+            var headers = document.getElementById('headers')
+            headers.addEventListener('click', function(){
+            var req = new XMLHttpRequest();
+            req.open('GET', document.location, false);
+            req.send(null);
+            var headers = req.getAllResponseHeaders().toLowerCase();
+            alert(headers);
+            });
+        </script>
+
+        <button id="getappversion" class="button">getappversion://</button><br><br>
+        <script>
+            var getappversion = document.getElementById('getappversion')
+            getappversion.addEventListener('click', function(){
+            window.location.href = "getappversion://";
+            alert(versionNumber);
+            alert(bundleNumber);
+            })
+        </script>
+
+        <button id="getonesignalplayerid" class="button">getonesignalplayerid://</button><br><br>
+        <script>
+            var getonesignalplayerid = document.getElementById('getonesignalplayerid')
+            getonesignalplayerid.addEventListener('click', function(){
+            window.location.href = "getonesignalplayerid://";
+            alert(onesignalplayerid); 
+            })
+        </script>
+
+    </div>
+  </body>
+</html>

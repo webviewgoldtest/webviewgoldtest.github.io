@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>SMS Links</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>SMS Links</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <p>NOTE: iOS SMS tests work on a real device, not simulator</p><br><br>
+
+        <a href="sms:+4915118956490">iOS no body</a><br><br>
+        <a href='sms://open?addresses=+1-800-555-5555?&body=Hello%20World' target='_blank'>iOS with body</a><br><br>
+        <a href='sms:+1-800-555-5555?body=Hello%20World' target='_blank'>Android with body</a> <br><br>
+        <a href="sms://+15552345678;?&body=Hello%20World">iOS & Android with body</a><br><br>
+        <a href="sms://?&body=Hello%20World">iOS & Android only body</a><br><br>
+        <a href="sms://open?addresses=+15552345678,+15552345679;?&body=Hello%20World">iOS multiple recipients with body</a><br><br>
+        <a href="sms://+15552345678, +15552345679;?&body=Hello%20World">Android multiple recipients with body</a><br><br>
+
+    </div>
+  </body>
+</html>

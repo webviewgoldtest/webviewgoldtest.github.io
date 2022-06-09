@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Internal Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+      <h1>Internal Page</h1><br>
+      <a href="navigationLinks.html">Back</a><br><br><br>
+
+      <p>Hi! You have reached an internal page :)</p>
+
+      <button id="headers" class="button">page headers</button>
+      <script>
+        var headers = document.getElementById('headers')
+        headers.addEventListener('click', function(){
+          var req = new XMLHttpRequest();
+          req.open('GET', document.location, false);
+          req.send(null);
+          var headers = req.getAllResponseHeaders().toLowerCase();
+          alert(headers);
+        });
+      </script>
+
+    </div>
+  </body>
+</html>

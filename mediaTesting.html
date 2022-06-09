@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Media Testing</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+      <h1>Media Testing</h1>
+
+      <a href="index.html">Home</a><br><br><br>
+
+      <img src="https://via.placeholder.com/350"><br><br>
+
+      <!-- Disables MP4 video from opening in fullscreen view on iOS when page opens -->
+      <video width="350px" height="100%" webkit-playsinline="true" playsinline="true" autoplay muted loop>
+				<source src="videos/earth.mp4" type="video/mp4">
+				<source src="videos/earth.mp4" type="video/ogg">
+				Your browser does not support the video tag.
+			</video><br><br>
+
+      <p>iframe video:</p>
+      <iframe width="350" height="197" src="https://www.youtube.com/embed/HCDVN7DCzYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+  </body>
+</html>

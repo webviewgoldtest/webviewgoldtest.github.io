@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Navigation Links</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>Navigation Links</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <p>Internal Links (internalPage.html)</p>
+        <a href="internalPage.html">internal link</a><br><br>
+        <a href="internalPage.html" target="_blank">special link (_blank)</a><br><br>
+        <a href="internalPage.html" target="_self">special link (_self)</a><br><br>
+        <a href="#" onclick="window.location.href='internalPage.html';">window.location.href</a><br><br>
+        <a href="#" onclick="window.location='internalPage.html';">window.location</a><br><br>
+        <a href="#" onclick="top.location.href='internalPage.html';">top.location.href</a><br><br>
+        <a href="#" onclick="top.location='internalPage.html';">top.location</a><br><br>
+        <a href="#" onclick="window.open('internalPage.html');">window.open('')</a><br><br>
+        <a href="#" onClick="window.open('internalPage.html', '_blank')">window.open('','_blank')</a><br><br>
+        <a href="#" onClick="document.location.reload()">document.location.reload()</a><br><br>
+        
+        <p>External Links (www.google.com)</p>
+        <a href="https://www.google.com">external link</a><br><br>
+        <a href="https://www.google.com" target="_blank">special link (_blank)</a><br><br>
+        <a href="https://www.google.com" target="_self">special link (_self)</a><br><br>
+        <a href="#" onclick="window.location.href='https://www.google.com';">window.location.href</a><br><br>
+        <a href="#" onclick="window.location='https://www.google.com';">window.location</a><br><br>
+        <a href="#" onclick="top.location.href='https://www.google.com';">top.location.href</a><br><br>
+        <a href="#" onclick="top.location='https://www.google.com';">top.location</a><br><br>
+        <a href="#" onclick="window.open('https://www.google.com');">window.open('')</a><br><br>
+        <a href="#" onClick="window.open('http://www.google.com', '_blank')">window.open('','_blank')</a><br><br>
+
+    </div>
+  </body>
+</html>

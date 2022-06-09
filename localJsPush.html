@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Local Javascript Push Notifications</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>Local Javascript Push Notifications</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <button id="javaPush" class="button">test push (1 second delay)</button><br><br>
+        <script>
+          var javaPush = document.getElementById('javaPush')
+          javaPush.addEventListener('click', function(){
+            var title = "Notification Title"; //title of the notification
+            var message = "Test"; //notification message
+            var seconds = 1; //seconds from now on
+            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"";
+          });
+        </script>
+
+    </div>
+  </body>
+</html>
