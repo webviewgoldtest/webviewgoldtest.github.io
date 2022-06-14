@@ -17,7 +17,19 @@
 
         <p>Use this page to test persistent login cookie function 🍪</p>
         <p><i>Username = "x", Password = "x"</i></p>
-        <button id="getCookies" class="button">Get current cookies</button><br><br>
+
+        <button id="getLocalStorage" class="button">Get Local Storage</button><br>
+        <script>
+            document.getElementById("getLocalStorage").addEventListener("click", () => {
+                var localStorageList = "";
+                for (var i = 0; i < localStorage.length; i++){
+                    localStorageList = localStorageList + localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]\n";
+                }
+                alert(localStorageList);
+            })
+        </script>
+
+        <button id="getCookies" class="button">Get Cookies</button><br><br>
         <script>
             document.getElementById("getCookies").addEventListener("click", () => {
                 alert(document.cookie);
@@ -48,7 +60,15 @@
             let cookieData = document.cookie;
 
             // Diplay logic
-            if (cookieData == "loggedIn=true") {
+            // const itemStr = localStorage.getItem("loggedIn")
+            // if (itemStr != null) {
+            //     const item = JSON.parse(itemStr)
+            //     if (item.value == "true") {
+            //         loginView.classList.add("hidden");
+            //         loggedInView.classList.remove("hidden");
+            //     }
+            // }
+            if (localStorage.getItem("loggedIn") == "true") {
                 loginView.classList.add("hidden");
                 loggedInView.classList.remove("hidden");
             }
@@ -58,8 +78,14 @@
                 let username = document.getElementById("username").value;
                 let password = document.getElementById("password").value;
                 if (username == "x" && password == "x") {
-                    // Add a persistent login cookie
-                    document.cookie = "loggedIn=true; expires=${new Date(new Date().getTime()+1000*60*60*24*365).toGMTString()}; path=/";
+                    // Add a persistent login cookie to local storage
+                    // const now = new Date();
+                    // const item = {
+                    //     value: "true",
+                    //     expiry: now.setFullYear(now.getFullYear() + 1),
+                    // };
+                    // localStorage.setItem("loggedIn", JSON.stringify(item));
+                    localStorage.setItem("loggedIn", "true");
                 } else {
                     alert("Incorrect Username / Password");
                 }
@@ -67,10 +93,11 @@
 
             // Logout logic
             logoutButton.addEventListener("click", () => {
-                // Remove the persistent login cookie
-                document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                // Remove the persistent login cookie from local storage
+                localStorage.removeItem("loggedIn");
                 location.reload();
             })
+
         </script>
 
     </div>
