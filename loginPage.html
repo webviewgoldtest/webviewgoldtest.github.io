@@ -57,17 +57,8 @@
             const loggedInView = document.getElementById("loggedInView");
             const loginButton = document.getElementById("loginButton");
             const logoutButton = document.getElementById("logoutButton");
-            let cookieData = document.cookie;
 
-            // Diplay logic
-            // const itemStr = localStorage.getItem("loggedIn")
-            // if (itemStr != null) {
-            //     const item = JSON.parse(itemStr)
-            //     if (item.value == "true") {
-            //         loginView.classList.add("hidden");
-            //         loggedInView.classList.remove("hidden");
-            //     }
-            // }
+            // Display logic
             if (localStorage.getItem("loggedIn") == "true") {
                 loginView.classList.add("hidden");
                 loggedInView.classList.remove("hidden");
@@ -79,12 +70,6 @@
                 let password = document.getElementById("password").value;
                 if (username == "x" && password == "x") {
                     // Add a persistent login cookie to local storage
-                    // const now = new Date();
-                    // const item = {
-                    //     value: "true",
-                    //     expiry: now.setFullYear(now.getFullYear() + 1),
-                    // };
-                    // localStorage.setItem("loggedIn", JSON.stringify(item));
                     localStorage.setItem("loggedIn", "true");
                 } else {
                     alert("Incorrect Username / Password");
