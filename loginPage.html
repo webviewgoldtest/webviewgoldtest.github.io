@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>Login Page</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <p>Use this page to test persistent login cookie function 🍪</p>
+        <p><i>Username = "x", Password = "x"</i></p>
+        <button id="getCookies" class="button">Get current cookies</button><br><br>
+        <script>
+            document.getElementById("getCookies").addEventListener("click", () => {
+                alert(document.cookie);
+            })
+        </script>
+
+        <h2>Login</h2>
+
+        <form id="loginView">
+
+            <input type="text" name="" placeholder="Enter Username" id="username"><br><br>
+            <input type="password" name="" placeholder="Enter Password" id="password"><br><br>
+            <button id="loginButton" class="button">Login</button>
+
+        </form>
+
+        <div id="loggedInView" class="hidden">
+            <p>You are logged in :)</p>
+            <button id="logoutButton" class="button">Logout</button>
+
+        </div>
+
+        <script>
+            const loginView = document.getElementById("loginView");
+            const loggedInView = document.getElementById("loggedInView");
+            const loginButton = document.getElementById("loginButton");
+            const logoutButton = document.getElementById("logoutButton");
+            let cookieData = document.cookie;
+
+            // Diplay logic
+            if (cookieData == "loggedIn=true") {
+                loginView.classList.add("hidden");
+                loggedInView.classList.remove("hidden");
+            }
+
+            // Login logic
+            loginButton.addEventListener("click", () => {
+                let username = document.getElementById("username").value;
+                let password = document.getElementById("password").value;
+                if (username == "x" && password == "x") {
+                    // Add a persistent login cookie
+                    document.cookie = "loggedIn=true; expires=${new Date(new Date().getTime()+1000*60*60*24*365).toGMTString()}; path=/";
+                } else {
+                    alert("Incorrect Username / Password");
+                }
+            })
+
+            // Logout logic
+            logoutButton.addEventListener("click", () => {
+                // Remove the persistent login cookie
+                document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                location.reload();
+            })
+        </script>
+
+    </div>
+  </body>
+</html>
