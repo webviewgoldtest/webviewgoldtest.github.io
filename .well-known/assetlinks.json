@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "webviewgold",
+      "package_name": "webviewgold.myappname",
+      "sha256_cert_fingerprints":
+      ["FE:C3:54:97:3C:9D:4B:BF:DC:D3:C0:46:39:9F:51:69:D1:BC:A6:28:B9:CA:F0:BA:D1:6C:06:00:E9:79:BE:CE"]
+    }
+  }]

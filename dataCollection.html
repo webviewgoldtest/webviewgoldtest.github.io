@@ -53,6 +53,7 @@
           var getappversion = document.getElementById('getappversion')
           getappversion.addEventListener('click', function(){
             if (isWebViewBrowser()) {
+              window.location.href = "getappversion://";
               alert("versionNumber: " + versionNumber + "\nbundleNumber: " + bundleNumber);
             } else {
               alert("The WebViewGold browser is needed to perform this function.")
