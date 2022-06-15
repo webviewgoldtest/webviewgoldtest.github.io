@@ -48,6 +48,15 @@
           })
         </script>
 
+        <script>
+          window.onload = function() {
+            if (isWebViewBrowser()) {
+              window.location.href = "getappversion://";
+              window.location.href = "getonesignalplayerid://";
+            }
+          }
+        </script>
+
         <button id="getappversion" class="button">getappversion://</button><br><br>
         <script>
           var getappversion = document.getElementById('getappversion')
@@ -74,8 +83,5 @@
 
     </div>
   </body>
-  <script>
-    window.location.href = "getappversion://";
-    window.location.href = "getonesignalplayerid://";
-  </script>
+
 </html>
