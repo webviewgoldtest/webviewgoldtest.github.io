@@ -48,13 +48,6 @@
           })
         </script>
 
-        <script>
-          if (isWebViewBrowser()) {
-            // Collects vars: versionNumber & bundleNumber
-            window.location.href = "getappversion://";
-          }
-        </script>
-
         <button id="getappversion" class="button">getappversion://</button><br><br>
         <script>
           var getappversion = document.getElementById('getappversion')
@@ -67,12 +60,7 @@
           })
         </script>
 
-        <script>
-          if (isWebViewBrowser()) {
-            // Collects vars: onesignalplayerid
-            window.location.href = "getonesignalplayerid://";
-          }
-        </script>
+        <a href="getonesignalplayerid://">load onesignalplayerid</a><br>
 
         <button id="getonesignalplayerid" class="button">getonesignalplayerid://</button><br><br>
         <script>
