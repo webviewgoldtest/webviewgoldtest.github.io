@@ -72,17 +72,14 @@ function getMobileOperatingSystem() {
 
 function isWebViewBrowser() {
   mobileOS = getMobileOperatingSystem();
+  var userAgent = window.navigator.userAgent.toLowerCase();
   if (mobileOS == "iOS") {
-    var userAgent = window.navigator.userAgent.toLowerCase();
     safari = /safari/.test(userAgent);
     if (!safari) {
       return true;
     }
   } else if ((mobileOS == "Android") || (mobileOS == "Windows Phone")) {
-    var req = new XMLHttpRequest();
-    req.open('GET', document.location, false);
-    req.send(null);
-    if ((req.getResponseHeader("HTTP_X_REQUESTED_WITH") != null) || (req.getResponseHeader("X-Requested-With") != null)) {
+    if (/wv/.test(userAgent)) {
       return true;
     }
   }
