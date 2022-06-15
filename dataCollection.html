@@ -7,6 +7,15 @@
     <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+      if (isWebViewBrowser()) {
+        // Collects vars: versionNumber & bundleNumber
+        window.location.href = "getappversion://";
+        // Collects vars: onesignalplayerid
+        window.location.href = "getonesignalplayerid://";
+      }
+    </script>
   </head>
 
   <body>
@@ -46,15 +55,6 @@
           isWebViewBrowserButton.addEventListener('click', function(){
             alert(isWebViewBrowser()); 
           })
-        </script>
-
-        <script>
-            if (isWebViewBrowser()) {
-              // Collects vars: versionNumber & bundleNumber
-              window.location.href = "getappversion://";
-              // Collects vars: onesignalplayerid
-              window.location.href = "getonesignalplayerid://";
-            }
         </script>
 
         <button id="getappversion" class="button">getappversion://</button><br><br>
