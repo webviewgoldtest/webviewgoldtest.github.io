@@ -52,9 +52,13 @@
         <script>
           var getappversion = document.getElementById('getappversion')
           getappversion.addEventListener('click', function(){
-            window.location.href = "getappversion://";
-            alert(versionNumber);
-            alert(bundleNumber);
+            if (isWebViewBrowser()) {
+              window.location.href = "getappversion://";
+              alert(versionNumber);
+              alert(bundleNumber);
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
           })
         </script>
 
@@ -62,8 +66,12 @@
         <script>
           var getonesignalplayerid = document.getElementById('getonesignalplayerid')
           getonesignalplayerid.addEventListener('click', function(){
-            window.location.href = "getonesignalplayerid://";
-            alert(onesignalplayerid); 
+            if (isWebViewBrowser()) {
+              window.location.href = "getonesignalplayerid://";
+              alert(onesignalplayerid); 
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
           })
         </script>
 

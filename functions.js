@@ -79,7 +79,10 @@ function isWebViewBrowser() {
       return true;
     }
   } else if ((mobileOS == "Android") || (mobileOS == "Windows Phone")) {
-    if ((getResponseHeader("HTTP_X_REQUESTED_WITH") != null) || (getResponseHeader("X-Requested-With") != null)) {
+    var req = new XMLHttpRequest();
+    req.open('GET', document.location, false);
+    req.send(null);
+    if ((req.getResponseHeader("HTTP_X_REQUESTED_WITH") != null) || (req.getResponseHeader("X-Requested-With") != null)) {
       return true;
     }
   }
