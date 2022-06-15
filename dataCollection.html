@@ -48,6 +48,13 @@
           })
         </script>
 
+        <script>
+          if (isWebViewBrowser()) {
+            // Collects vars: versionNumber & bundleNumber
+            window.location.href = "getappversion://";
+          }
+        </script>
+
         <button id="getappversion" class="button">getappversion://</button><br><br>
         <script>
           var getappversion = document.getElementById('getappversion')
@@ -58,6 +65,13 @@
               alert("The WebViewGold browser is needed to perform this function.")
             }
           })
+        </script>
+
+        <script>
+          if (isWebViewBrowser()) {
+            // Collects vars: onesignalplayerid
+            window.location.href = "getonesignalplayerid://";
+          }
         </script>
 
         <button id="getonesignalplayerid" class="button">getonesignalplayerid://</button><br><br>
@@ -74,13 +88,4 @@
 
     </div>
   </body>
-  <!-- Script to execute WebViewGold trigger URL APIs -->
-  <script>
-    if (isWebViewBrowser()) {
-      // Collects vars: versionNumber & bundleNumber
-      window.location.href = "getappversion://";
-      // Collects vars: onesignalplayerid
-      window.location.href = "getonesignalplayerid://";
-    }
-  </script>
 </html>
