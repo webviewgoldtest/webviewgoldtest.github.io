@@ -7,15 +7,6 @@
     <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <script>
-      if (isWebViewBrowser()) {
-        // Collects vars: versionNumber & bundleNumber
-        window.location.href = "getappversion://";
-        // Collects vars: onesignalplayerid
-        window.location.href = "getonesignalplayerid://";
-      }
-    </script>
   </head>
 
   <body>
@@ -30,6 +21,10 @@
           useragent.addEventListener('click', function(){
             alert(navigator.userAgent);
           });
+        </script>
+
+        <script>
+          window.location.href = "getappversion://";
         </script>
 
         <button id="headers" class="button">page headers</button><br><br>
@@ -83,4 +78,13 @@
 
     </div>
   </body>
+  <!-- Script to execute WebViewGold trigger URL APIs -->
+  <script>
+    if (isWebViewBrowser()) {
+      // Collects vars: versionNumber & bundleNumber
+      window.location.href = "getappversion://";
+      // Collects vars: onesignalplayerid
+      window.location.href = "getonesignalplayerid://";
+    }
+  </script>
 </html>
