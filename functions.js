@@ -43,3 +43,47 @@ function startCountdown(label,expiration){
   }, 1000);
 
 }
+
+function getHeaders() {
+  var req = new XMLHttpRequest();
+  req.open('GET', document.location, false);
+  req.send(null);
+  var headers = req.getAllResponseHeaders().toLowerCase();
+  return headers;
+}
+
+
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  // Windows Phone must come first because its UA also contains "Android"
+  if (/windows phone/i.test(userAgent)) {
+      return "Windows Phone";
+  }
+  if (/android/i.test(userAgent)) {
+      return "Android";
+  }
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return "iOS";
+  }
+  return "Not a mobile operating system.";
+}
+
+
+function isWebViewBrowser() {
+  mobileOS = getMobileOperatingSystem();
+  if (mobileOS == "iOS") {
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    safari = /safari/.test(userAgent);
+    if (!safari) {
+      return true;
+    }
+  } else if ((mobileOS == "Android") || (mobileOS == "Windows Phone")) {
+    if ((getResponseHeader("HTTP_X_REQUESTED_WITH") != null) || (getResponseHeader("X-Requested-With") != null)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+

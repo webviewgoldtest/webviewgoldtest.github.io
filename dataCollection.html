@@ -17,41 +17,54 @@
 
         <button id="useragent" class="button">useragent</button><br><br>
         <script>
-            var useragent = document.getElementById('useragent')
-            useragent.addEventListener('click', function(){
+          var useragent = document.getElementById('useragent')
+          useragent.addEventListener('click', function(){
             alert(navigator.userAgent);
-            });
+          });
         </script>
 
         <button id="headers" class="button">page headers</button><br><br>
         <script>
-            var headers = document.getElementById('headers')
-            headers.addEventListener('click', function(){
-            var req = new XMLHttpRequest();
-            req.open('GET', document.location, false);
-            req.send(null);
-            var headers = req.getAllResponseHeaders().toLowerCase();
+          var headers = document.getElementById('headers')
+          headers.addEventListener('click', function(){
+            headers = getHeaders();
             alert(headers);
-            });
+          });
+        </script>
+
+        <button id="getMobileOperatingSystemButton" class="button">getMobileOperatingSystem</button><br><br>
+        <script>
+          var getMobileOperatingSystemButton = document.getElementById('getMobileOperatingSystemButton')
+          getMobileOperatingSystemButton.addEventListener('click', function(){
+            alert(getMobileOperatingSystem()); 
+          })
+        </script>
+
+        <button id="isWebViewBrowserButton" class="button">isWebViewBrowser?</button><br><br>
+        <script>
+          var isWebViewBrowserButton = document.getElementById('isWebViewBrowserButton')
+          isWebViewBrowserButton.addEventListener('click', function(){
+            alert(isWebViewBrowser()); 
+          })
         </script>
 
         <button id="getappversion" class="button">getappversion://</button><br><br>
         <script>
-            var getappversion = document.getElementById('getappversion')
-            getappversion.addEventListener('click', function(){
+          var getappversion = document.getElementById('getappversion')
+          getappversion.addEventListener('click', function(){
             window.location.href = "getappversion://";
             alert(versionNumber);
             alert(bundleNumber);
-            })
+          })
         </script>
 
         <button id="getonesignalplayerid" class="button">getonesignalplayerid://</button><br><br>
         <script>
-            var getonesignalplayerid = document.getElementById('getonesignalplayerid')
-            getonesignalplayerid.addEventListener('click', function(){
+          var getonesignalplayerid = document.getElementById('getonesignalplayerid')
+          getonesignalplayerid.addEventListener('click', function(){
             window.location.href = "getonesignalplayerid://";
             alert(onesignalplayerid); 
-            })
+          })
         </script>
 
     </div>
