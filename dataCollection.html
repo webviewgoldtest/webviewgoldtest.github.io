@@ -81,6 +81,15 @@
           })
         </script>
 
+        <script>
+            if (isWebViewBrowser()) {
+              window.location.href = "getappversion://";
+              alert("versionNumber: " + versionNumber + "\nbundleNumber: " + bundleNumber);
+              window.location.href = "getonesignalplayerid://";
+              alert(onesignalplayerid)
+            }
+        </script>
+
     </div>
   </body>
 
