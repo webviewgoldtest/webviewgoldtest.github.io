@@ -15,6 +15,14 @@
         <h1>Data Collection</h1>
         <a href="index.html">Home</a><br><br><br>
 
+        <button id="getURL" class="button">current url</button><br><br>
+        <script>
+          var getURL = document.getElementById('getURL')
+          getURL.addEventListener('click', function(){
+            alert(window.location.href);
+          });
+        </script>
+
         <button id="useragent" class="button">useragent</button><br><br>
         <script>
           var useragent = document.getElementById('useragent')
