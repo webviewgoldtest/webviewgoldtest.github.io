@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>In-App Purchases</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>In-App Purchases</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <h1>In-App Purchases (New 2020 API)</h1>
+        <a href="inapppurchase://?package=purchase_item_one&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_one (+ keep AdMob)</a><br>
+        <a href="inapppurchase://?package=purchase_item_one&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_one (+ disable AdMob)</a>
+        <br>
+        <a href="inapppurchase://?package=purchase_item_two&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_two (+ keep AdMob)</a><br>
+        <a href="inapppurchase://?package=purchase_item_two&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_two (+ disable AdMob)</a>
+        <br>
+        <a href="inapppurchase://?package=purchase_item_three&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_three (+ keep AdMob)</a><br>
+        <a href="inapppurchase://?package=purchase_item_three&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_three (+ disable AdMob)</a>
+        
+        <h1>In-App Purchases (Old 2019 API)</h1>
+        <a href="inapppurchase://?successful_url=https://www.google.com">Buy In-App Purchase (+ keep AdMob)</a><br>
+        <a href="inapppurchase://?disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase (+ disable AdMob)</a>
+        
+        <h1>In-App Subscription (New 2020 API)</h1>
+        <a href="inappsubscription://?package=sub_one_month&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_one_month</a><br>
+        <a href="inappsubscription://?package=sub_three_month&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_three_month</a><br>
+        <a href="inappsubscription://?package=sub_one_year&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_one_year</a>
+       
+        <h1>In-App Subscription (Old 2019 API)</h1>
+        <a href="inappsubscription://?successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription</a>
+        <br><br>
+
+
+    </div>
+  </body>
+</html>

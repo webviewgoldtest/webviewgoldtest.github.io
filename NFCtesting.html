@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>NFC API</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>NFC API</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <input type="text" placeholder="Value to Write" id="myInput"><br>
+        <a id="write" href="Javascript: writeToNFC();">Write Value to NFC</a>
+        
+        <script>
+            function writeToNFC(){
+                // Selecting the input element and get its value 
+                var inputVal = document.getElementById("myInput").value;
+                
+                document.getElementById('write').href = "writenfc://?value=" + inputVal;
+
+                document.getElementById('write').click();//fake a click on the link
+                // Displaying the value
+                document.getElementById('write').href = "Javascript: writeToNFC()";
+                
+            }
+            function readNFCResult(val) {
+                alert(val);
+            }
+        </script><br><br> 
+        <a href="readnfc://">Read an NFC Tag</a>
+        <div id="NFCResult"> </div><br><br>
+
+    </div>
+  </body>
+
+</html>

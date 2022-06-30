@@ -96,6 +96,40 @@
             }
         </script>
 
+        <button id="getUUIDbutton" class="button">get UUID</button><br><br>
+        <script>
+          var getUUIDbutton = document.getElementById('getUUIDbutton')
+          getUUIDbutton.addEventListener('click', function(){
+            window.location.href = "get-uuid://";
+            alert(uuid);
+          })
+        </script>
+
+        <h2>Geolocation</h2>
+  
+        <button onclick="getLocation()" class="button">get coordinates</button>
+
+        <p id="demo"></p>
+
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        </script>
+
+        <a href="geo:">geo:</a><br><br>
+
     </div>
   </body>
 
