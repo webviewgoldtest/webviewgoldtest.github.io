@@ -22,7 +22,11 @@
         <p>The MultiAPICall feature allows you to call multiple APIs in a single window.loaction.href assignment at the end of your web script, which may be desired if you wish to pre-load more than one data feature from the app, ready to be used on a page.</p><br>
         
         <p><u>Hence, MultiAPICall supports the following data collection APIs:</u></p>
-        <p>get-uuid, user-disable-tracking, getonesignalplayerid, getappversion</p><br>
+        <p>"get-uuid", "user-disable-tracking", "getonesignalplayerid", "getappversion"</p><br>
+
+        <p><u>MultiAPICall trigger URL format:</u></p>
+        <p>"multiapicall://api1,api2..."</p>
+        <p>(no spaces, API names separated by a ',')</p><br>
 
         <p>This web page contains an demo script of the feature, which when loaded on WebViewGold for iOS, preloads the data from the supported data collection APIs so you can access the information at the click of any button below.</p>
         <p>To view this code, right-click on the page and select "View Page Source" or "Inspect".</p><br>
@@ -141,7 +145,7 @@
             if (isWebViewBrowser()) {
               // Whatever special WebViewGold API triggers you want for the page
               if (getMobileOperatingSystem() == "iOS") {
-                window.location.href = "multiapicall://getonesignalplayerid,getappversion";
+                window.location.href = "multiapicall://get-uuid,user-disable-tracking,getonesignalplayerid,getappversion";
               } else {
                 window.location.href = "getonesignalplayerid://";
                 window.location.href = "getappversion://"; 
