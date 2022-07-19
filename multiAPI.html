@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>MultiAPICall Feature (iOS)</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>MultiAPICall Feature (iOS)</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <!-- Information -->
+
+        <p>This is an optional feature for iOS since Apple-based browsers process multiple page reloads on the same script differently to Android-based browsers.</p>
+        <p>This means calling window.location.href = "exampleAPItrigger" multiple times will not work on iOS, unlike on Android.</p>
+        <p>The MultiAPICall feature allows you to call multiple APIs in a single window.loaction.href assignment at the end of your web script, which may be desired if you wish to pre-load more than one data feature from the app, ready to be used on a page.</p><br>
+        
+        <p><u>Hence, MultiAPICall supports the following data collection APIs:</u></p>
+        <p>get-uuid, user-disable-tracking, getonesignalplayerid, getappversion</p><br>
+
+        <p>This web page contains an demo script of the feature, which when loaded on WebViewGold for iOS, preloads the data from the supported data collection APIs so you can access the information at the click of any button below.</p>
+        <p>To view this code, right-click on the page and select "View Page Source" or "Inspect".</p><br>
+
+        <h2>Demo of supported APIs using MultiAPICall</h2><br>
+
+        <!-- Helper functions -->
+
+        <script>
+            function getMobileOperatingSystem() {
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                // Windows Phone must come first because its UA also contains "Android"
+                if (/windows phone/i.test(userAgent)) {
+                    return "Windows Phone";
+                }
+                if (/android/i.test(userAgent)) {
+                    return "Android";
+                }
+                // iOS detection from: http://stackoverflow.com/a/9039885/177710
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    return "iOS";
+                }
+                return "Not a mobile operating system.";
+            }
+
+            function isWebViewBrowser() {
+                mobileOS = getMobileOperatingSystem();
+                var userAgent = window.navigator.userAgent.toLowerCase();
+                if (mobileOS == "iOS") {
+                safari = /safari/.test(userAgent);
+                if (!safari) {
+                    return true;
+                }
+                } else if ((mobileOS == "Android") || (mobileOS == "Windows Phone")) {
+                if (/wv/.test(userAgent)) {
+                    return true;
+                }
+                }
+                return false;
+            }  
+        </script>
+
+        <!-- Buttons -->
+
+        <button id="getuuid" class="button">get-uuid</button><br><br>
+        <script>
+        var getuuid = document.getElementById('getuuid')
+        getuuid.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+            if (typeof uuid !== 'undefined') {
+                alert(uuid);
+            } else {
+                alert("undefined")
+            }
+            } else {
+            alert("The WebViewGold browser is needed to perform this function.")
+            }
+        })
+        </script>
+
+        <button id="userdisabletracking" class="button">user-disable-tracking</button><br><br>
+        <script>
+        var userdisabletracking = document.getElementById('userdisabletracking')
+        userdisabletracking.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+            if (typeof trackingDisabled !== 'undefined') {
+                alert(trackingDisabled);
+            } else {
+                alert("undefined")
+            }
+            } else {
+            alert("The WebViewGold browser is needed to perform this function.")
+            }
+        })
+        </script>
+
+        <button id="getonesignalplayerid" class="button">getonesignalplayerid</button><br><br>
+        <script>
+          var getonesignalplayerid = document.getElementById('getonesignalplayerid')
+          getonesignalplayerid.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+              if (typeof onesignalplayerid !== 'undefined') {
+                alert(onesignalplayerid); 
+              } else {
+                alert("undefined")
+              }
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
+          })
+        </script>
+
+        <button id="getappversion" class="button">getappversion</button><br><br>
+        <script>
+        var getappversion = document.getElementById('getappversion')
+        getappversion.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+            if ((typeof versionNumber !== 'undefined') & (typeof bundleNumber !== 'undefined')) {
+            alert("versionNumber: " + versionNumber + "\nbundleNumber: " + bundleNumber);
+            } else {
+                alert("undefined")
+            }
+            } else {
+            alert("The WebViewGold browser is needed to perform this function.")
+            }
+        })
+        </script>
+
+        <br><br>
+
+        <!-- Using the MultiAPICall feature -->
+        <!-- Note: for this case, it is best to put the window.location.href call at the end of the web script
+                so that it does not prevent other elements in the page from loading -->
+
+        <script>
+            if (isWebViewBrowser()) {
+              // Whatever special WebViewGold API triggers you want for the page
+              if (getMobileOperatingSystem() == "iOS") {
+                window.location.href = "multiapicall://getonesignalplayerid,getappversion";
+              } else {
+                window.location.href = "getonesignalplayerid://";
+                window.location.href = "getappversion://"; 
+              }
+            }
+        </script>
+
+    </div>
+  </body>
+</html>
