@@ -89,14 +89,6 @@
           })
         </script>
 
-        <script>
-            if (isWebViewBrowser()) {
-              // Whatever special WebViewGold API triggers you want for the page
-              window.location.href = "getonesignalplayerid://";
-              window.location.href = "getappversion://"; 
-            }
-        </script>
-
         <button id="getUUIDbutton" class="button">get UUID</button><br><br>
         <script>
           var getUUIDbutton = document.getElementById('getUUIDbutton')
@@ -130,6 +122,14 @@
         </script>
 
         <a href="geo:">geo:</a><br><br>
+
+        <script>
+          if (isWebViewBrowser()) {
+            // Whatever special WebViewGold API triggers you want for the page
+            window.location.href = "getonesignalplayerid://";
+            window.location.href = "getappversion://"; 
+          }
+      </script>
 
     </div>
   </body>
