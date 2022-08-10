@@ -10,6 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-210BSCMZE7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-210BSCMZE7');
+  </script>
+
   <body>
     <div id="main">
 
@@ -109,9 +119,9 @@
 
         function getLocation() {
           if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            alert(navigator.geolocation.getCurrentPosition(showPosition));
           } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            alert("Geolocation is not supported by this browser.");
           }
         }
 
@@ -120,8 +130,6 @@
           "<br>Longitude: " + position.coords.longitude;
         }
         </script>
-
-        <a href="geo:">geo:</a><br><br>
 
         <script>
           if (isWebViewBrowser()) {
