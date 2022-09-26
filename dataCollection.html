@@ -25,6 +25,8 @@
 
         <h1>Data Collection</h1>
         <a href="index.html">Home</a><br><br><br>
+        
+        <h2>General Information</h2><br>
 
         <button id="getURL" class="button">current url</button><br><br>
         <script>
@@ -66,6 +68,8 @@
             alert(isWebViewBrowser()); 
           })
         </script>
+        
+        <h2>APIs</h2><br>
 
         <button id="getappversion" class="button">getappversion://</button><br><br>
         <script>
@@ -94,21 +98,42 @@
                 alert("undefined")
               }
             } else {
-              alert("The WebViewGold browser is needed to perform this function.")
+                alert("The WebViewGold browser is needed to perform this function.")
             }
           })
         </script>
 
-        <button id="getUUIDbutton" class="button">get UUID</button><br><br>
+        <button id="getUUIDbutton" class="button">get-uuid://</button><br><br>
         <script>
           var getUUIDbutton = document.getElementById('getUUIDbutton')
           getUUIDbutton.addEventListener('click', function(){
-            window.location.href = "get-uuid://";
-            alert(uuid);
+              if (isWebViewBrowser()) {
+                window.location.href = "get-uuid://";
+                alert(uuid);
+              } else {
+                 alert("The WebViewGold browser is needed to perform this function.")
+              }
           })
         </script>
+        
+        <button id="userdisabletracking" class="button">user-disable-tracking</button><br><br>
+        <script>
+        var userdisabletracking = document.getElementById('userdisabletracking')
+        userdisabletracking.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+                window.location.href = "user-disable-tracking://";
+                if (typeof trackingDisabled !== 'undefined') {
+                    alert(trackingDisabled);
+                } else {
+                    alert("undefined")
+                }
+            } else {
+                alert("The WebViewGold browser is needed to perform this function.")
+            }
+        })
+        </script>
 
-        <h2>Geolocation</h2>
+        <h2>Geolocation</h2><br>
   
         <button onclick="getLocation()" class="button">get coordinates</button>
 
