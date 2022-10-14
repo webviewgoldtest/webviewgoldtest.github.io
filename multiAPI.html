@@ -148,8 +148,8 @@
               if (getMobileOperatingSystem() == "iOS") {
                 window.location.href = "multiapicall://get-uuid,user-disable-tracking,getonesignalplayerid,getappversion";
               } else {
+                // user-disable-tracking is not included in WebViewGold for Android
                 window.location.href = "get-uuid://";
-                window.location.href = "user-disable-tracking://"; 
                 window.location.href = "getonesignalplayerid://";
                 window.location.href = "getappversion://";
               }
