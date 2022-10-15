@@ -23,12 +23,27 @@
         <a href="spinneron://">Show</a><br>
         <a href="spinneroff://">Hide</a><br><br>
 
-        <h1>Sharing Dialog API</h1>
+        <h2>Sharing Dialog API</h2>
         <a href="shareapp://">Share this app (No Text; Old API)</a><br>
         <a href="shareapp://sharetext?=TEST TEST TEST TEST www.webviewgold.com">Share this app (With TEST TEST TEST text, new API)</a><br><br>
         
-        <h1>Take Screenshot API</h1>
+        <h2>Take Screenshot API</h2>
         <a href="takescreenshot://">Save</a><br><br>
+        
+        <h2>🎨 Dynamic Status Bar 🎨</h2>
+        <h3>Change the Color of the Status Bar</h3>
+        <p>argb = {alpha (opacity), red, green, blue}<br>
+        rgb = {red, green, blue}<br>
+        values = [0, 255]</p>
+        <a href="statusbarcolor://255,255,0,0">"statusbarcolor://255,255,0,0" (argb, Opaque Red)</a><br>
+        <a href="statusbarcolor://100,255,0,0">"statusbarcolor://100,255,0,0" (argb, Translucent Red)</a><br>
+        <a href="statusbarcolor://0,255,0,0">"statusbarcolor://0,255,0,0" (argb, Transparent Red)</a><br>
+        <a href="statusbarcolor://255,0,0">"statusbarcolor://255,0,0" (rgb, Red)</a><br>
+        <h3>Change the Color of the Status Bar Text</h3>
+        <a href="statusbartextcolor://light">"statusbartextcolor://light"</a><br>
+        <a href="statusbartextcolor://dark">"statusbartextcolor://dark"</a><br>
+
+        <br><br>
 
     </div>
   </body>
