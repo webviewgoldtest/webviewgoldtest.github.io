@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Permissions</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <h1>Permissions</h1>
+        <a href="index.html">Home</a><br><br><br>
+
+        <p>WebViewGold contains permissions for access to location, file storage, camera and audio.<br>
+        Use the following examples to test permissions.</p>
+
+        <br>
+
+        <h2>Location</h2>
+
+        <button onclick="getLocation()" class="button">Get Location</button>
+
+        <p id="demo"></p>
+
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            alert(navigator.geolocation.getCurrentPosition(showPosition));
+          } else {
+            alert("Geolocation is not supported by this browser.");
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        </script>
+        
+        <br>
+
+        <h2>File Storage</h2>
+
+        <input type="file" name="file" multiple="multiple"><br><br>
+
+        <h2>Camera</h2>
+
+        <input type="file" name="cam" accept="image/*" capture="camera"><br><br>
+
+        <h2>Audio</h2>
+
+        <input type="file" accept="audio/*" capture /><br><br>
+
+    </div>
+  </body>
+</html>
