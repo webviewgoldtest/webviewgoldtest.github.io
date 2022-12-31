@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Stream Test</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #videoElement {
+            width: auto;
+            height: auto;
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+
+</head>
+ 
+<body>
+
+    <div id="main">
+
+        <h1>Video Stream Test</h1>
+        <a href="permissions.html">Back</a><br><br><br>
+
+        <video autoplay="true" id="videoElement"></video>
+        
+    </div>
+
+    <script>
+        var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+            video.srcObject = stream;
+            })
+            .catch(function (err0r) {
+            console.log("Something went wrong!");
+            });
+        }
+    </script>
+
+</body>
+</html>
