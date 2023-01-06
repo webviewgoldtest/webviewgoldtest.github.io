@@ -23,8 +23,12 @@
 
         <h2>Location</h2>
 
+        <a href="https://www.google.com/maps">Google Maps</a><br><br>
+        <a href="https://www.gps-coordinates.net/my-location">https://www.gps-coordinates.net/my-location</a><br><br>
+        <a href="https://my-location.org/">https://my-location.org/</a><br><br>
+        <a href="https://gps-coordinates.org/my-location.php">https://gps-coordinates.org/my-location.php</a><br><br>
+
         <button onclick="getLocation()" class="button">Get Location</button><br><br>
-        <a href="https://www.google.com/maps">Google Maps</a>
 
         <p id="demo"></p>
 
@@ -33,7 +37,12 @@
 
         function getLocation() {
           if (navigator.geolocation) {
-            alert(navigator.geolocation.getCurrentPosition(showPosition));
+            var location = navigator.geolocation.getCurrentPosition(showPosition);
+            if (location = "undefined") {
+              alert("Please enable Location services for this browser.")
+            } else {
+              alert(navigator.geolocation.getCurrentPosition(showPosition));
+            }
           } else {
             alert("Geolocation is not supported by this browser.");
           }
@@ -44,8 +53,6 @@
           "<br>Longitude: " + position.coords.longitude;
         }
         </script>
-        
-        <br>
 
         <h2>File Storage</h2>
 
