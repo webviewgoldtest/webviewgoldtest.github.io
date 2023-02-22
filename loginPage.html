@@ -41,8 +41,8 @@
 
         <form id="loginView">
 
-            <input type="text" name="" placeholder="Enter Username" id="username"><br><br>
-            <input type="password" name="" placeholder="Enter Password" id="password"><br><br>
+            <input type="text" name="" placeholder="Enter Username" id="username" autocomplete="username"><br><br>
+            <input type="password" name="" placeholder="Enter Password" id="password" autocomplete="current-password"><br><br>
             <button id="loginButton" class="button">Login</button>
 
         </form>
@@ -85,6 +85,11 @@
             })
 
         </script>
+
+        <br><br>
+        <h2>Test Auto-Fill Credentials</h2>
+        <input id="user-text-field" placeholder="Enter Username" type="email" autocomplete="username"/><br><br>
+        <input id="password-text-field" placeholder="Enter Password" type="password" autocomplete="current-password"/>
 
     </div>
   </body>
