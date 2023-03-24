@@ -102,6 +102,22 @@
             }
           })
         </script>
+        
+        <button id="getfirebaseplayerid" class="button">getfirebaseplayerid://</button><br><br>
+        <script>
+          var getfirebaseplayerid = document.getElementById('getfirebaseplayerid')
+          getfirebaseplayerid.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+              if (typeof firebaseplayerid !== 'undefined') {
+                alert(firebaseplayerid); 
+              } else {
+                alert("undefined")
+              }
+            } else {
+                alert("The WebViewGold browser is needed to perform this function.")
+            }
+          })
+        </script>
 
         <button id="getUUIDbutton" class="button">get-uuid://</button><br><br>
         <script>
