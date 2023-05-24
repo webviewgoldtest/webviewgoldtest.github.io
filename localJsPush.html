@@ -23,7 +23,8 @@
             var title = "Notification Title"; //title of the notification
             var message = "Test"; //notification message
             var seconds = 1; //seconds from now on
-            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"";
+            var url = "https://www.yahoo.com"; // URL to load
+            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
           });
         </script>
 
