@@ -20,14 +20,21 @@
         <input type="file" name="file" multiple="multiple"><br><br>
 
         <h2>File Download</h2>
+
         <a href="http://www.pdf995.com/samples/pdf.pdf">Link to a .pdf file</a><br>
         <a href="test.ics">Link to a .ics iCal file</a><br>
         <a href="https://www.w3schools.com/html/horse.mp3">Link to a .mp3 file</a><br>
         <a href="https://s3platform.jrc.ec.europa.eu/documents/20182/262240/JRC+workshop_Irujo.pptx">Link to a .pptx file</a><br>
         <a href="http://muc2019.mensch-und-computer.de/wp-content/uploads/sites/4/2018/06/Demos_Supplement_English.docx">Link to a .docx file</a><br>
         <a href="https://www.seattle.gov/Documents/Departments/SDCI/Resources/Stats/2012Feb5k.xlsx">Link to a .xlsx file</a><br>
-        <a href="savethisimage://?url=https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png">Image Saving API</a><br><br>
+        <a href="savethisimage://?url=https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png">Image Saving API</a><br>
 
+        <!-- Blob URL Download Test -->
+        <a download="blobUrlTest.txt" href='#' id="link">Blob Url File (Plain Text)</a>
+        <script>
+        let blob = new Blob(["Hello, world!"], {type: 'text/plain'});
+        link.href = URL.createObjectURL(blob);
+        </script>
 
     </div>
   </body>
