@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Local Javascript Push Notifications</title>
+    <title>Push Notifications</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="icon" href="images/favicon.png">
     <script src="functions.js"></script>
@@ -13,8 +13,10 @@
   <body>
     <div id="main">
 
-        <h1>Local Javascript Push Notifications</h1>
+        <h1>Push Notifications</h1>
         <a href="index.html">Home</a><br><br><br>
+
+        <h2>Local Javascript Push Notifications</h2>
 
         <button id="javaPush" class="button">test push (1s delay; CNN deep-link)</button><br><br>
         <script>
@@ -25,6 +27,20 @@
             var seconds = 1; //seconds from now on
             var url = "https://www.cnn.com"; // URL to load
             window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+          });
+        </script>
+
+        <br>
+
+        <h2>Manual Registration for Push Notifications</h2>
+        <p>This iOS feature is used to manually prompt your users to register for push notifications,
+          <br>instead of asking for permission on app installation.
+        <br>To use this feature, set <i>askforpushpermissionatfirstrun = false</i> in Config.swift</p>
+        <button id="registerPush" class="button">registerpush://</button><br><br>
+        <script>
+          var registerPush = document.getElementById('registerPush')
+          registerPush.addEventListener('click', function(){
+            window.location.href = " registerpush://";
           });
         </script>
 
