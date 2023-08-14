@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Dark Mode Tests</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+        <style>
+            /* Light mode */
+            @media (prefers-color-scheme: light) {
+                body {
+                    background-color: white;
+                    color: black;
+                }
+                a {
+                    color: rgb(216,12,100);
+                }
+            }
+
+            /* Dark mode */
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: black;
+                    color: white;
+                }
+                a {
+                    color: rgb(216,12,100);
+                }
+            }
+        </style>
+
+        <h1>Dark Mode Test Page</h1>
+
+        <a href="index.html">Home</a><br><br><br>
+
+        <p>Use this page for testing dark mode changes.</p><br>
+        <p>When using dark mode, the background will be black.</p>
+        <p>When in light mode, the background will be white.</p><br>
+        <h2>The current theme is...</h2>
+        <p id="isDarkMode">n/a</p>
+
+        <script>
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                const newColorScheme = e.matches ? "dark" : "light";
+                if (newColorScheme == "dark") {
+                    document.getElementById("isDarkMode").innerHTML = "Dark Mode";
+                } else if (newColorScheme == "light") {
+                    document.getElementById("isDarkMode").innerHTML = "Light Mode";
+                } else {
+                    document.getElementById("isDarkMode").innerHTML = "n/a";
+                }
+                
+            });
+        </script>
+
+        <br><br><br>
+
+    </div>
+  </body>
+
+</html>
