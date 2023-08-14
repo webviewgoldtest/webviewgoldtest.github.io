@@ -50,14 +50,19 @@
         <script>
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
                 const newColorScheme = e.matches ? "dark" : "light";
+                // Detect Dynamic Change
                 if (newColorScheme == "dark") {
                     document.getElementById("isDarkMode").innerHTML = "Dark Mode";
                 } else if (newColorScheme == "light") {
                     document.getElementById("isDarkMode").innerHTML = "Light Mode";
                 } else {
-                    document.getElementById("isDarkMode").innerHTML = "n/a";
+                    // If no dynamic change has been logged (eg. page launch), check static status
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        document.getElementById("isDarkMode").innerHTML = "Dark Mode";
+                    } else {
+                        document.getElementById("isDarkMode").innerHTML = "Light Mode";
+                    }
                 }
-                
             });
         </script>
 
