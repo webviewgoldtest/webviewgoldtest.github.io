@@ -24,22 +24,22 @@
             function writeToNFC(){
                 // Selecting the input element and get its value 
                 var inputVal = document.getElementById("myInput").value;
-                
                 document.getElementById('write').href = "writenfc://?value=" + inputVal;
-
-                document.getElementById('write').click();//fake a click on the link
+                // Fake a click on the link
+                document.getElementById('write').click();
                 // Displaying the value
                 document.getElementById('write').href = "Javascript: writeToNFC()";
-                
             }
+
             function readNFCResult(data, id, tag) {
                 alert(`Data: ${data}\nID: ${id}\nTag: ${tag}`);
             }
         </script><br><br> 
 
         <h2>Read NFC</h2>
-        <a href="readnfc://">Read Value from NFC</a>
-        <div id="NFCResult"> </div><br><br>
+        <a href="readnfc://">Read Value from NFC</a><br><br>
+
+        <h2>Info</h2>
         <p>The result of the NFC read will call the <code>readNFCResult(data, id, tag)</code></b> function.</p>
         <p>You must define this function in your web app.</p>
         <p>Example definition:</p>   
