@@ -12,6 +12,15 @@ body {
     text-align: center;
 }
 
+.codebox {
+    text-align: center;
+}
+ 
+.codebox pre {
+   display: inline-block;
+   text-align: left;
+}
+
 a {
     color: rgb(248, 217, 230);
 }

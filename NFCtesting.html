@@ -32,15 +32,24 @@
                 document.getElementById('write').href = "Javascript: writeToNFC()";
                 
             }
-            function readNFCResult(val) {
-                alert(val);
+            function readNFCResult(data, id, tag) {
+                alert(`Data: ${data}\nID: ${id}\nTag: ${tag}`);
             }
         </script><br><br> 
 
         <h2>Read NFC</h2>
-        <a href="readnfc://">Read an NFC Tag</a>
+        <a href="readnfc://">Read Value from NFC</a>
         <div id="NFCResult"> </div><br><br>
-
+        <p>The result of the NFC read will call the <code>readNFCResult(data, id, tag)</code></b> function.</p>
+        <p>You must define this function in your web app.</p>
+        <p>Example definition:</p>   
+        <div class="codebox">
+          <pre>
+            function readNFCResult(data, id, tag) {
+              alert(`Data: ${data}\nID: ${id}\nTag: ${tag}`);
+            }
+          </pre>
+        </div>
     </div>
   </body>
 
