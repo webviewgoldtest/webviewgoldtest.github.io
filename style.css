@@ -13,7 +13,9 @@ body {
 }
 
 .codebox {
-    text-align: center;
+    text-align: left;
+    max-width: fit-content;
+    margin: auto;
 }
  
 .codebox pre {
