@@ -1,9 +1,11 @@
 {
-    "applinks": {
-        "details": [
-             {
-               "appIDs": [ "K5VVT29R5R.com.onlineappcreator.webviewgold"]
-             }
-         ]
-     }
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "K5VVT29R5R.com.onlineappcreator.webviewgold.testing",
+        "paths": ["*"]
+      }
+    ]
   }
+}
