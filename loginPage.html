@@ -103,7 +103,8 @@
                 alert("Bio Authentication Succeeded");
             }
             function onBioAuthFailure(errorCode, errorMessage) {
-                alert(`Bio Authentication Failed: + ${errorMessage} (code ${errorCode})`);
+                // errorCode = Int, errorMessage = String
+                alert(`Bio Authentication Failed: ${errorMessage} (code ${errorCode})`);
             }
             function onBioAuthUnavailable() {
                 alert("Bio Authentication Unavailable");
