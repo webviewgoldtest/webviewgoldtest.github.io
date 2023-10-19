@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Data Collection</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-210BSCMZE7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-210BSCMZE7');
+  </script>
+
+  <body>
+    <div id="main">
+
+      <h1>Data Collection</h1>
+      <a href="index.html">Home</a><br><br><br>
+      
+      <h2>General Information</h2><br>
+
+      <button id="getURL" class="button">current url</button><br><br>
+      <script>
+        var getURL = document.getElementById('getURL')
+        getURL.addEventListener('click', function(){
+          alert(window.location.href);
+        });
+      </script>
+
+      <button id="useragent" class="button">useragent</button><br><br>
+      <script>
+        var useragent = document.getElementById('useragent')
+        useragent.addEventListener('click', function(){
+          alert(navigator.userAgent);
+        });
+      </script>
+
+      <button id="headers" class="button">page headers</button><br><br>
+      <script>
+        var headers = document.getElementById('headers')
+        headers.addEventListener('click', function(){
+          headers = getHeaders();
+          alert(headers);
+        });
+      </script>
+
+      <button id="getMobileOperatingSystemButton" class="button">getMobileOperatingSystem</button><br><br>
+      <script>
+        var getMobileOperatingSystemButton = document.getElementById('getMobileOperatingSystemButton')
+        getMobileOperatingSystemButton.addEventListener('click', function(){
+          alert(getMobileOperatingSystem()); 
+        })
+      </script>
+      
+      <h2>APIs</h2><br>
+
+      <button id="getappversion" class="button">getappversion://</button><br><br>
+      <script>
+        var getappversion = document.getElementById('getappversion')
+        getappversion.addEventListener('click', function() {
+          if ((typeof versionNumber !== 'undefined') & (typeof bundleNumber !== 'undefined')) {
+            alert("versionNumber: " + versionNumber + "\nbundleNumber: " + bundleNumber);
+          } else {
+            alert("undefined");
+          }
+        })
+      </script>
+
+      <button id="getonesignalplayerid" class="button">getonesignalplayerid://</button><br><br>
+      <script>
+        var getonesignalplayerid = document.getElementById('getonesignalplayerid')
+        getonesignalplayerid.addEventListener('click', function() {
+          if (typeof onesignalplayerid !== 'undefined') {
+            alert(onesignalplayerid); 
+          } else {
+            alert("undefined");
+          }
+        })
+      </script>
+      
+      <button id="getfirebaseplayerid" class="button">getfirebaseplayerid://</button><br><br>
+      <script>
+        var getfirebaseplayerid = document.getElementById('getfirebaseplayerid')
+        getfirebaseplayerid.addEventListener('click', function() {
+          if (typeof firebaseplayerid !== 'undefined') {
+            alert(firebaseplayerid); 
+          } else {
+            alert("undefined");
+          }
+        })
+      </script>
+
+      <button id="getUUIDbutton" class="button">get-uuid://</button><br><br>
+      <script>
+        var getUUIDbutton = document.getElementById('getUUIDbutton')
+        getUUIDbutton.addEventListener('click', function() {
+          if (typeof uuid !== 'undefined') {
+            alert(uuid); 
+          } else {
+            alert("undefined");
+          }
+        })
+      </script>
+      
+      <button id="userdisabletracking" class="button">user-disable-tracking</button><br><br>
+      <script>
+      var userdisabletracking = document.getElementById('userdisabletracking')
+      userdisabletracking.addEventListener('click', function() {
+        if (typeof trackingDisabled !== 'undefined') {
+            alert(trackingDisabled);
+        } else {
+            alert("undefined")
+        }
+      })
+      </script>
+
+      <h2>Geolocation</h2><br>
+
+      <button onclick="getLocation()" class="button">get coordinates</button>
+
+      <p id="demo"></p>
+
+      <script>
+      var x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          alert(navigator.geolocation.getCurrentPosition(showPosition));
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+
+      function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+      }
+      </script>
+
+      <script>
+        // Whatever special WebViewGold API triggers you want for the page
+        if (getMobileOperatingSystem() == "iOS") {
+          window.location.href = "multiapicall://get-uuid,user-disable-tracking,getonesignalplayerid,getappversion";
+        } else {
+          // user-disable-tracking is not included in WebViewGold for Android
+          window.location.href = "get-uuid://";
+          window.location.href = "getonesignalplayerid://";
+          window.location.href = "getappversion://";
+          window.location.href = "getfirebaseplayerid://";
+        }
+      </script>
+
+    </div>
+  </body>
+
+</html>
