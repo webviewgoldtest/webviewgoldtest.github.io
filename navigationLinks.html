@@ -16,28 +16,51 @@
         <h1>Navigation Links</h1>
         <a href="index.html">Home</a><br><br><br>
 
-        <p>Internal Links (internalPage.html)</p>
-        <a href="internalPage.html">internal link</a><br><br>
-        <a href="internalPage.html" target="_blank">special link (_blank)</a><br><br>
-        <a href="internalPage.html" target="_self">special link (_self)</a><br><br>
-        <a href="#" onclick="window.location.href='internalPage.html';">window.location.href</a><br><br>
-        <a href="#" onclick="window.location='internalPage.html';">window.location</a><br><br>
-        <a href="#" onclick="top.location.href='internalPage.html';">top.location.href</a><br><br>
-        <a href="#" onclick="top.location='internalPage.html';">top.location</a><br><br>
-        <a href="#" onclick="window.open('internalPage.html');">window.open('')</a><br><br>
-        <a href="#" onClick="window.open('internalPage.html', '_blank')">window.open('','_blank')</a><br><br>
-        <a href="#" onClick="document.location.reload()">document.location.reload()</a><br><br>
+        <p>WebViewGold offers several options on how to handle different kinds of navigational links that are loaded in your web app.
+          <br>The following are examples of different kinds of links for testing purposes.</p><br>
+        <p><b>Internal Link</b> = a link with the SAME domain as your web app's domain.</p>
+        <p><b>External Link</b> = a link with a DIFFERENT domain to your web app's domain.</p>
+        <p><b>Normal Link</b> = a link that simply opens in the same window, no extra instructions attached.</p>
+        <p><b>Special Link</b> = a link that has instructions attached to open in a new window.</p><br>
+
+        <h2>Internal Links (internalPage.html)</h2>
+        <h3>Normal Links</h3>
+        <a href="internalPage.html">href="internalPage.html"</a><br><br>
+        <a href="internalPage.html" target="_self">href="internalPage.html" target="_self"</a><br>
+
+        <h3>Special Links</h3>
+        <a href="internalPage.html" target="_blank">href="internalPage.html" target="_blank"</a><br><br>
+
+        <!-- <a href="#" onclick="window.location.href='internalPage.html';">window.location.href='internalPage.html';</a><br><br>
+        <a href="#" onclick="window.location='internalPage.html';">window.location='internalPage.html';</a><br><br>
+        <a href="#" onclick="top.location.href='internalPage.html';">top.location.href='internalPage.html';</a><br><br>
+        <a href="#" onclick="top.location='internalPage.html';">top.location='internalPage.html';</a><br><br> -->
+
+        <a href="#" onclick="window.open('internalPage.html');">window.open('internalPage.html')</a><br><br>
+        <a href="#" onClick="window.open('internalPage.html', '_blank');">window.open('internalPage.html', '_blank')</a><br><br>
+
+        <!-- <a href="#" onClick="document.location.reload()">document.location.reload()</a><br><br> -->
         
-        <p>External Links (www.google.com)</p>
-        <a href="https://www.google.com">external link</a><br><br>
-        <a href="https://www.google.com" target="_blank">special link (_blank)</a><br><br>
-        <a href="https://www.google.com" target="_self">special link (_self)</a><br><br>
-        <a href="#" onclick="window.location.href='https://www.google.com';">window.location.href</a><br><br>
+        <h2>External Links (www.google.com)</h2>
+        <h3>Normal Links</h3>
+        <a href="https://www.google.com">href="https://www.google.com"</a><br><br>
+        <a href="https://www.google.com" target="_self">href="https://www.google.com" target="_self"</a><br><br>
+
+        <h3>Special Links</h3>
+        <a href="https://www.google.com" target="_blank">href="https://www.google.com" target="_blank"</a><br><br>
+        
+        <!-- <a href="#" onclick="window.location.href='https://www.google.com';">window.location.href</a><br><br>
         <a href="#" onclick="window.location='https://www.google.com';">window.location</a><br><br>
         <a href="#" onclick="top.location.href='https://www.google.com';">top.location.href</a><br><br>
-        <a href="#" onclick="top.location='https://www.google.com';">top.location</a><br><br>
-        <a href="#" onclick="window.open('https://www.google.com');">window.open('')</a><br><br>
-        <a href="#" onClick="window.open('http://www.google.com', '_blank')">window.open('','_blank')</a><br><br>
+        <a href="#" onclick="top.location='https://www.google.com';">top.location</a><br><br> -->
+
+        <a href="#" onclick="window.open('https://www.google.com');">window.open('https://www.google.com')</a><br><br>
+        <a href="#" onClick="window.open('http://www.google.com', '_blank')">window.open('http://www.google.com', '_blank')</a><br><br>
+
+        <br><br><br><br>
+
+        <h2>Demo Page</h2>
+        <a href="linkHandlingDemo.html">Demo Page</a><br><br>
 
         <br><br>
 
