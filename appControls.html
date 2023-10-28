@@ -34,8 +34,18 @@
         <h2>Ask Push Permission API</h2>
         <a href="registerpush://">registerpush://</a><br><br>
         
-        <h2>🎨 Dynamic Status Bar 🎨</h2>
-        <h3>Change the Color of the Status Bar</h3>
+        <h2>🎨 Dynamic UI API 🎨</h2>
+        <p>WebViewGold includes the following features to dynamically change the UI appearance:</p>
+        <div id="dynamicUIFeatures">
+          <p><ul><li><b>statusbarcolor://</b>
+            <ul><li>The master command to change the color of the status bar and any other relevant UI features automatically (such as the text color, the bottom bar on iOS, etc).</li></ul></li>
+            <li><b>statusbartextcolor://</b>
+              <ul><li>Allows you to manually change the text color of the status bar.</li></ul></li>
+            <li><b>bottombarcolor://</b>
+              <ul><li>If a bottom bar UI element exists, allows you to manually change its color (separately to other UI elements).</li></ul></li></ul></p>
+        </div><br>
+
+        <h3>Change the Color of the Status Bar (and other UI)</h3>
         <p>rgb = {red, green, blue}<br>
         values = [0, 255]</p>
         <a href="statusbarcolor://255,0,0">"statusbarcolor://255,0,0" (Red)</a><br>
@@ -56,8 +66,17 @@
         <a href="statusbarcolor://100,0,0,0">"statusbarcolor://0,0,0,0" (Completely Transparent)</a><br> -->
         
         <h3>Change the Color of the Status Bar Text</h3>
+        <p>"black" or "white"</p>
         <a href="statusbartextcolor://white">"statusbartextcolor://white"</a><br>
         <a href="statusbartextcolor://black">"statusbartextcolor://black"</a><br>
+        <br>
+
+        <h3>Change the Color of the Bottom Bar</h3>
+        <p>rgb = {red, green, blue}<br>
+        values = [0, 255]</p>
+        <a href="bottombarcolor://255,0,0">"bottombarcolor://255,0,0" (Red)</a><br>
+        <a href="bottombarcolor://0,255,0">"bottombarcolor://0,255,0" (Green)</a><br>
+        <a href="bottombarcolor://0,0,255">"bottombarcolor://0,0,255" (Blue)</a><br>
         <br>
 
         <h3>Hide/Show the Status Bar</h3>

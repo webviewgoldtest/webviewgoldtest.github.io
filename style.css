@@ -63,3 +63,10 @@ input {
 .hidden {
     display: none;
 }
+
+#dynamicUIFeatures {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
