@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Manual Registration for Push Notifications</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+      <h1>Manual Registration for Push Notifications</h1><br>
+      <a href="#" onclick="history.back();">Back</a><br><br><br>
+
+      <p>This iOS feature is used to manually prompt your users to register for push notifications,
+        <br>instead of asking for permission on app installation.
+      <br>To use this feature, set <i>askforpushpermissionatfirstrun = false</i> in Config.swift</p><br>
+      <button id="registerPush" class="button">registerpush://</button><br><br>
+      <script>
+        var registerPush = document.getElementById('registerPush')
+        registerPush.addEventListener('click', function(){
+          window.location.href = " registerpush://";
+        });
+      </script>
+
+      <br><br>
+
+    </div>
+  </body>
+</html>

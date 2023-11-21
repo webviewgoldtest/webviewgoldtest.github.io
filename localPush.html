@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Local Push Notification JavaScript API</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="functions.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+
+      <h1>Local Push Notification JavaScript API</h1><br>
+      <a href="#" onclick="history.back();">Back</a><br><br><br>
+
+      <button id="javaPush1" class="button">Test Local Push (1s delay; no deeplink)</button><br><br>
+      <script>
+        var javaPush1 = document.getElementById('javaPush1')
+        javaPush1.addEventListener('click', function(){
+          var title = "Notification Title"; //title of the notification
+          var message = "Test"; //notification message
+          var seconds = 1; //seconds from now on
+          var url = ""; // URL to load
+          window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+        });
+      </script>
+
+      <button id="javaPush5" class="button">Test Local Push (5s delay; no deeplink)</button><br><br>
+      <script>
+        var javaPush5 = document.getElementById('javaPush5')
+        javaPush5.addEventListener('click', function(){
+          var title = "Notification Title"; //title of the notification
+          var message = "Test"; //notification message
+          var seconds = 5; //seconds from now on
+          var url = ""; // URL to load
+          window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+        });
+      </script>
+
+      <button id="javaPush1Deeplink" class="button">Test Local Push (1s delay; deep-link 🌐)</button><br><br>
+      <script>
+        var javaPush1Deeplink = document.getElementById('javaPush1Deeplink')
+        javaPush1Deeplink.addEventListener('click', function(){
+          var title = "Notification Title"; //title of the notification
+          var message = "Test"; //notification message
+          var seconds = 1; //seconds from now on
+          var url = "https://webviewgoldtest.github.io/internalPage.html"; // URL to load
+          window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+        });
+      </script>
+
+      <button id="javaPush5Deeplink" class="button">Test Local Push (5s delay; deep-link 🌐)</button><br><br>
+      <script>
+        var javaPush5Deeplink = document.getElementById('javaPush5Deeplink')
+        javaPush5Deeplink.addEventListener('click', function(){
+          var title = "Notification Title"; //title of the notification
+          var message = "Test"; //notification message
+          var seconds = 5; //seconds from now on
+          var url = "https://webviewgoldtest.github.io/internalPage.html"; // URL to load
+          window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+        });
+      </script>
+
+      <button id="cancelJavaPush" class="button">❌ Cancel Scheduled Local Push Notifications ❌</button><br><br>
+      <script>
+        var javaPcancelJavaPushush2 = document.getElementById('cancelJavaPush')
+        cancelJavaPush.addEventListener('click', function(){
+          window.location.href = "sendlocalpushmsg://push.send.cancel";
+        });
+      </script>
+
+      <br><br>
+
+    </div>
+  </body>
+</html>
