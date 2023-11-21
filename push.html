@@ -42,26 +42,26 @@
           });
         </script>
 
-        <button id="javaPush1Deeplink" class="button">Test Local Push (1s delay; example.com deep-link 🌐)</button><br><br>
+        <button id="javaPush1Deeplink" class="button">Test Local Push (1s delay; deep-link 🌐)</button><br><br>
         <script>
           var javaPush1Deeplink = document.getElementById('javaPush1Deeplink')
           javaPush1Deeplink.addEventListener('click', function(){
             var title = "Notification Title"; //title of the notification
             var message = "Test"; //notification message
             var seconds = 1; //seconds from now on
-            var url = "https://www.example.com"; // URL to load
+            var url = "https://webviewgoldtest.github.io/internalPage.html"; // URL to load
             window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
           });
         </script>
 
-        <button id="javaPush5Deeplink" class="button">Test Local Push (5s delay; example.com deep-link 🌐)</button><br><br>
+        <button id="javaPush5Deeplink" class="button">Test Local Push (5s delay; deep-link 🌐)</button><br><br>
         <script>
           var javaPush5Deeplink = document.getElementById('javaPush5Deeplink')
           javaPush5Deeplink.addEventListener('click', function(){
             var title = "Notification Title"; //title of the notification
             var message = "Test"; //notification message
             var seconds = 5; //seconds from now on
-            var url = "https://www.example.com"; // URL to load
+            var url = "https://webviewgoldtest.github.io/internalPage.html"; // URL to load
             window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
           });
         </script>
