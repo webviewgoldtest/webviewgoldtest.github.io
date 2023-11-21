@@ -16,17 +16,61 @@
         <h1>Push Notifications</h1>
         <a href="index.html">Home</a><br><br><br>
 
-        <h2>Local Javascript Push Notifications</h2>
+        <h2>Local Push Notification JavaScript API</h2>
 
-        <button id="javaPush" class="button">test push (1s delay; CNN deep-link)</button><br><br>
+        <button id="javaPush1" class="button">Test Local Push (1s delay; no deeplink)</button><br><br>
         <script>
-          var javaPush = document.getElementById('javaPush')
-          javaPush.addEventListener('click', function(){
+          var javaPush1 = document.getElementById('javaPush1')
+          javaPush1.addEventListener('click', function(){
             var title = "Notification Title"; //title of the notification
             var message = "Test"; //notification message
             var seconds = 1; //seconds from now on
-            var url = "https://www.cnn.com"; // URL to load
+            var url = ""; // URL to load
             window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+          });
+        </script>
+
+        <button id="javaPush5" class="button">Test Local Push (5s delay; no deeplink)</button><br><br>
+        <script>
+          var javaPush5 = document.getElementById('javaPush5')
+          javaPush5.addEventListener('click', function(){
+            var title = "Notification Title"; //title of the notification
+            var message = "Test"; //notification message
+            var seconds = 5; //seconds from now on
+            var url = ""; // URL to load
+            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+          });
+        </script>
+
+        <button id="javaPush1Deeplink" class="button">Test Local Push (1s delay; example.com deep-link 🌐)</button><br><br>
+        <script>
+          var javaPush1Deeplink = document.getElementById('javaPush1Deeplink')
+          javaPush1Deeplink.addEventListener('click', function(){
+            var title = "Notification Title"; //title of the notification
+            var message = "Test"; //notification message
+            var seconds = 1; //seconds from now on
+            var url = "https://www.example.com"; // URL to load
+            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+          });
+        </script>
+
+        <button id="javaPush5Deeplink" class="button">Test Local Push (5s delay; example.com deep-link 🌐)</button><br><br>
+        <script>
+          var javaPush5Deeplink = document.getElementById('javaPush5Deeplink')
+          javaPush5Deeplink.addEventListener('click', function(){
+            var title = "Notification Title"; //title of the notification
+            var message = "Test"; //notification message
+            var seconds = 5; //seconds from now on
+            var url = "https://www.example.com"; // URL to load
+            window.location.href = "sendlocalpushmsg://push.send?s="+ seconds +"=msg!"+ message +"&!#"+ title +"&!#"+ url +"";
+          });
+        </script>
+
+        <button id="cancelJavaPush" class="button">❌ Cancel Scheduled Local Push Notifications ❌</button><br><br>
+        <script>
+          var javaPcancelJavaPushush2 = document.getElementById('cancelJavaPush')
+          cancelJavaPush.addEventListener('click', function(){
+            window.location.href = "sendlocalpushmsg://push.send.cancel";
           });
         </script>
 
