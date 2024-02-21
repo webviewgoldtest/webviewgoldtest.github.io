@@ -86,4 +86,14 @@ function isWebViewBrowser() {
   return false;
 }
 
+function lightHaptic(url) {
+  if (isWebViewBrowser) {
+    console.log("Applying light haptic feedback")
+    window.location.href = "lighthaptic://"
+    window.open(url, "_self")
+  } else {
+    window.location.href = url;
+  }
+}
+
 

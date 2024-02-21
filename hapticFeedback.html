@@ -13,7 +13,7 @@
   <body>
     <div id="main">
 
-      <h1>Haptic Feedback Testing (iOS Only Currently)</h1>
+      <h1>Haptic Feedback Testing (iOS Only Currently, No Simulator)</h1>
 
       <a href="index.html">Home</a><br><br><br>
       <div>
@@ -28,6 +28,11 @@
         <a href="multiapicall://lighthaptic,get-uuid">Light + getuuid</a>
         <a href="multiapicall://mediumhaptic,get-uuid">Medium + getuuid</a>
         <a href="multiapicall://heavyhaptic,get-uuid">Heavy + getuuid</a>
+      </div>
+
+      <div>
+        <h2>Other uses with JS</h2>
+        <a onclick="lightHaptic('index.html')">Light + Navigation</a>
       </div>
 
       
