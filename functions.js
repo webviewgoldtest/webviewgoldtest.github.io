@@ -88,12 +88,21 @@ function isWebViewBrowser() {
 
 function lightHaptic(url) {
   if (isWebViewBrowser) {
-    console.log("Applying light haptic feedback")
-    window.location.href = "lighthaptic://"
-    window.open(url, "_self")
+    window.location.href = url;
+    loadInnerHref("lighthaptic://");
   } else {
     window.location.href = url;
   }
+}
+
+/* used when we've already just changed the window.location.href but
+want to change it again for API calls - iOS */
+function loadInnerHref(url) {
+  iFrame = document.createElement("iframe");
+  iFrame.setAttribute("src", url); 
+  document.body.appendChild(iFrame);
+  iFrame.parentNode.removeChild(iFrame);
+  iFrame = null;
 }
 
 
