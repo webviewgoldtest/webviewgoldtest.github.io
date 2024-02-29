@@ -13,25 +13,22 @@
   <body>
     <div id="main">
 
-      <h1>Haptic Feedback Testing (iOS Only Currently, No Simulator)</h1>
+      <h1>Haptic Feedback Testing (No Simulator)</h1>
 
       <a href="index.html">Home</a><br><br><br>
       <div>
         <h2>Varying Strengths</h2>
         <a href="lighthaptic://">Light</a>
-        <a href="mediumhaptic://">Medium</a>
         <a href="heavyhaptic://">Heavy</a>
         <a href="successhaptic://">Success</a>
-        <a href="warninghaptic://">Warning</a>
         <a href="errorhaptic://">Error</a>
       </div>
 
       <div>
-        <h2>Multi-Api Example</h2>
+        <h2>Multi-Api Example (iOS only)</h2>
         <!-- This means calling window.location.href = "exampleAPItrigger" multiple times on the same web page script will not work on iOS, unlike on Android.
         so create new section for android -->
         <a href="multiapicall://lighthaptic,get-uuid">Light + getuuid</a>
-        <a href="multiapicall://mediumhaptic,get-uuid">Medium + getuuid</a>
         <a href="multiapicall://heavyhaptic,get-uuid">Heavy + getuuid</a>
       </div>
 
@@ -40,7 +37,6 @@
         <a onclick="lightHaptic('index.html')">Light + Navigation</a>
       </div>
 
-      
     </div>
   </body>
 </html>
