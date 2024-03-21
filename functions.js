@@ -105,4 +105,12 @@ function loadInnerHref(url) {
   iFrame = null;
 }
 
+function injectTestCookie() {
+  document.cookie = "testCookie=testValue";
+}
+
+function viewCookies() {
+  alert(document.cookie);
+}
+
 
