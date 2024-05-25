@@ -5,5 +5,12 @@
       "package_name": "com.webviewgold.myappname",
       "sha256_cert_fingerprints":
       ["FE:C3:54:97:3C:9D:4B:BF:DC:D3:C0:46:39:9F:51:69:D1:BC:A6:28:B9:CA:F0:BA:D1:6C:06:00:E9:79:BE:CE"]
-    }
+    },
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.webviewgold.myappname",
+        "sha256_cert_fingerprints":
+        ["C9:C2:11:FB:6A:83:84:C8:98:EA:44:74:FB:D4:89:22:B7:ED:B7:F3:12:37:9B:F1:81:34:C2:14:0F:62:48:C6"]
+      }
   }]
