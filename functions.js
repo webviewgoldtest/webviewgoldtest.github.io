@@ -113,4 +113,14 @@ function viewCookies() {
   alert(document.cookie);
 }
 
+function generateUrlWithCookies(url) {
+  let cookies = document.cookie;
+
+  if (cookies) {
+    url += "&cookies=" + encodeURIComponent(cookies);
+  }
+
+  return url;
+}
+
 
