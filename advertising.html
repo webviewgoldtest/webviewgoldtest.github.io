@@ -29,7 +29,7 @@
         // update the rewarded status
         function updateRewardedStatus() {
           var rewardedStatusElement = document.getElementById('rewarded-status');
-          rewardedStatusElement.textContent = 'Rewarded status: ' + (rewarded ? 'True' : 'False');
+          rewardedStatusElement.textContent = 'Rewarded status: ' + (rewarded === 'true' ? 'True' : 'False');
         }
     
         updateRewardedStatus();
