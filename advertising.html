@@ -18,8 +18,17 @@
 
       <div>
         <a href="displayrewardedad://">Display Rewarded Ad</a><br>
+        <a id="rewarded-status">Rewarded status: </a>
       </div>
 
     </div>
+
+    <script>
+        var rewarded = false;
+        function updateRewardedStatus(rewarded) {
+            var rewardedStatusElement = document.getElementById('rewarded-status');
+            rewardedStatusElement.textContent = 'Rewarded status: ' + (rewarded === 'true' ? 'True' : 'False');
+        }
+      </script>
   </body>
 </html>
