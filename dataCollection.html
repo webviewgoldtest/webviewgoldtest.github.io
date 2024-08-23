@@ -147,7 +147,7 @@
         })
         </script>
 
-        <a id="getstorelocation" class="button" href="getstorelocation://">getstorelocation://</a><br><br>
+        <button id="getstorelocation" class="button">getstorelocation://</button><br><br>
         <script>
           var getstorelocation = document.getElementById('getstorelocation')
           getstorelocation.addEventListener('click', function(){
@@ -190,13 +190,14 @@
             if (isWebViewBrowser()) {
               // Whatever special WebViewGold API triggers you want for the page
               if (getMobileOperatingSystem() == "iOS") {
-                window.location.href = "multiapicall://get-uuid,user-disable-tracking,getonesignalplayerid,getappversion";
+                window.location.href = "multiapicall://get-uuid,user-disable-tracking,getonesignalplayerid,getappversion,getstorelocation";
               } else {
                 // user-disable-tracking is not included in WebViewGold for Android
                 window.location.href = "get-uuid://";
                 window.location.href = "getonesignalplayerid://";
                 window.location.href = "getappversion://";
                 window.location.href = "getfirebaseplayerid://";
+                window.location.href = "getstorelocation://"
               }
             }
         </script>
