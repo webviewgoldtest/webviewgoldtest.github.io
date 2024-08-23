@@ -147,6 +147,22 @@
         })
         </script>
 
+        <button id="getstorelocation" class="button">getstorelocation://</button><br><br>
+        <script>
+          var getstorelocation = document.getElementById('getstorelocation')
+          getstorelocation.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+              if (typeof storeLocation !== 'undefined') {
+                alert("storeLocation: " + storeLocation);
+              } else {
+                alert("undefined")
+              }
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
+          })
+        </script>
+
         <h2>Geolocation</h2><br>
   
         <button onclick="getLocation()" class="button">get coordinates</button>
