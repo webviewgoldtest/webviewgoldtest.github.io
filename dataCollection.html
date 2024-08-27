@@ -146,24 +146,19 @@
             }
         })
         </script>
-<!-- 
+
         <button id="getstorelocation" class="button">getstorelocation://</button><br><br>
         <script>
           var getstorelocation = document.getElementById('getstorelocation')
           getstorelocation.addEventListener('click', function(){
             if (isWebViewBrowser()) {
-              if (typeof storeLocation !== 'undefined') {
-                window.location.href = "getstorelocation://";
-                alert("storeLocation: " + storeLocation);
-              } else {
-                alert("undefined")
-              }
+              window.location.href = "getstorelocation://";
+              alert("storeLocation: " + storeLocation);
             } else {
               alert("The WebViewGold browser is needed to perform this function.")
             }
           })
-        </script> -->
-        <a href="getstorelocation://">getstorelocation://</a>
+        </script>
 
         <h2>Geolocation</h2><br>
   
