@@ -153,6 +153,7 @@
           getstorelocation.addEventListener('click', function(){
             if (isWebViewBrowser()) {
               if (typeof storeLocation !== 'undefined') {
+                window.location.href = "getstorelocation://";
                 alert("storeLocation: " + storeLocation);
               } else {
                 alert("undefined")
@@ -197,7 +198,7 @@
                 window.location.href = "getonesignalplayerid://";
                 window.location.href = "getappversion://";
                 window.location.href = "getfirebaseplayerid://";
-                window.location.href = "getstorelocation://";
+                //window.location.href = "getstorelocation://";
               }
             }
         </script>
