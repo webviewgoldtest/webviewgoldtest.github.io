@@ -160,6 +160,32 @@
           })
         </script>
 
+        <button id="requestContactPermission" class="button">requestcontactpermission://</button><br><br>
+        <script>
+          var requestContactPermission = document.getElementById('requestContactPermission')
+          requestContactPermission.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+              window.location.href = "requestcontactpermission://";
+              alert("contactPermission: " + contactPermission);
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
+          })
+        </script>
+
+        <button id="readContacts" class="button">readcontacts://</button><br><br>
+        <script>
+          var readContacts = document.getElementById('readContacts')
+          readContacts.addEventListener('click', function(){
+            if (isWebViewBrowser()) {
+              window.location.href = "readcontacts://";
+              alert("contacts: " + contacts);
+            } else {
+              alert("The WebViewGold browser is needed to perform this function.")
+            }
+          })
+        </script>
+
         <h2>Geolocation</h2><br>
   
         <button onclick="getLocation()" class="button">get coordinates</button>
