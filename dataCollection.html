@@ -178,9 +178,9 @@
           var readContacts = document.getElementById('readContacts')
           readContacts.addEventListener('click', function(){
             if (isWebViewBrowser()) {
-              let contacts = null
+              let contacts = null // predefinition is required as readcontacts doesn't use let/const
               window.location.href = "readcontacts://";
-              alert("contacts: " + contacts);
+              alert("contacts: " + JSON.stringify(contacts));
             } else {
               alert("The WebViewGold browser is needed to perform this function.")
             }
