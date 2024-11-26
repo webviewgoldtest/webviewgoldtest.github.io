@@ -178,6 +178,7 @@
           var readContacts = document.getElementById('readContacts')
           readContacts.addEventListener('click', function(){
             if (isWebViewBrowser()) {
+              let contacts = null
               window.location.href = "readcontacts://";
               alert("contacts: " + contacts);
             } else {
