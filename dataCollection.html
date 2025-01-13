@@ -181,6 +181,7 @@
               let contacts = null // predefinition is required as readcontacts doesn't use let/const
               window.location.href = "readcontacts://";
               alert("contacts: " + JSON.stringify(contacts));
+              console.log("contacts: " + JSON.stringify(contacts));
             } else {
               alert("The WebViewGold browser is needed to perform this function.")
             }
