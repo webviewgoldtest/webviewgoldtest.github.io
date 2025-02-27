@@ -8,6 +8,11 @@
     <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      function showBarcode() {
+        alert(barcodescanresult);
+      }
+  </script>
   </head>
 
   <body>
@@ -24,7 +29,7 @@
 
         <h2>Barcode Scanner API</h2>
         <a href="barcodescanner://">Open QR Code Scanner</a><br><br>
-
+        <button onclick="showBarcode()">Show Barcode Output</button>
 
 
     </div>
