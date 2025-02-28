@@ -8,6 +8,11 @@
     <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      function showPurchaseHistory() {
+        alert(planID, transactionID, subreceipts);
+      }
+  </script>
   </head>
 
   <body>
@@ -34,6 +39,11 @@
 
         <h1>Restoration</h1>
         <a href="restoreinapppurchases://">Restore In-App Purchases</a>
+
+        <br>
+        <h1>Purchase History (planId, transactionId, subreceipts)</h1>
+        <a href="getpurchasehistory://">Get in app purchase history</a>
+        <button onclick="showPurchaseHistory()">Show in app purchase history variables</button>
 
         <br>
 
