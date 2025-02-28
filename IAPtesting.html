@@ -12,6 +12,9 @@
       function showPurchaseHistory() {
         alert(planID, transactionID, subreceipts);
       }
+      function showRestoredPurchases() {
+        alert(restoredProductIDs);
+      }
   </script>
   </head>
 
@@ -39,6 +42,7 @@
 
         <h1>Restoration</h1>
         <a href="restoreinapppurchases://">Restore In-App Purchases</a>
+        <button onclick="showRestoredPurchases()">Show restored product ids</button>
 
         <br>
         <h1>Purchase History (planId, transactionId, subreceipts)</h1>
