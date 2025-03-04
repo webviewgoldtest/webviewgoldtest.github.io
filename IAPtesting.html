@@ -17,6 +17,11 @@
         alert(restoredProductIDs);
       }
 
+      console.log = function(msg) {
+        var encodedMsg = encodeURIComponent(msg); // Ensure safe URL encoding
+        window.location.href = "consolelog://" + encodedMsg;
+      };
+
 
       /**
        * @param {Object} args - Arguments containing package and consumable info
