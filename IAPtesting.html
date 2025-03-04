@@ -16,6 +16,111 @@
       function showRestoredPurchases() {
         alert(restoredProductIDs);
       }
+
+
+      /**
+       * @param {Object} args - Arguments containing package and consumable info
+       * @param {Object} ctx - Context object for triggering events
+       */
+       function despiaInAppPurchaseV7(args, ctx) {
+          class VariableTracker {
+              constructor(variables, onReady) {
+                  this.variables = variables;
+                  this.onReady = onReady;
+                  this.triggered = false;
+                  this.processing = false;
+
+                  // Create tracker element
+                  this.tracker = document.createElement('div');
+                  this.tracker.style.display = 'none';
+                  document.body.appendChild(this.tracker);
+
+                  // Setup observer with debounce
+                  let timeout;
+                  this.observer = new MutationObserver(() => {
+                      clearTimeout(timeout);
+                      timeout = setTimeout(() => this.check(), 100);
+                  });
+
+                  // Start observing and checking
+                  this.observer.observe(this.tracker, { attributes: true });
+                  this.check();
+                  this.interval = setInterval(() => this.check(), 1000);
+              }
+
+              check() {
+                  if (this.processing || this.triggered) return;
+                  this.processing = true;
+
+                  try {
+                      const values = {};
+                      const allSet = this.variables.every(name => {
+                          const val = window[name];
+                          if (val === undefined || val === "n/a") return false;
+                          values[name] = val;
+                          return true;
+                      });
+
+                      if (allSet && !this.triggered) {
+                          this.triggered = true;
+                          this.cleanup();
+                          this.onReady(values);
+                      }
+                  } catch (err) {
+                      ctx.triggerActionEvent("onError");
+                  }
+
+                  this.processing = false;
+              }
+
+              cleanup() {
+                  this.observer.disconnect();
+                  clearInterval(this.interval);
+                  this.tracker.remove();
+              }
+          }
+
+          // Observe Payment Variables
+          new VariableTracker(
+              ['planID', 'transactionID', 'subreceipts'], // Used to be transactionIdentifier
+              values => ctx.triggerActionEvent("onSuccess", {
+                  plan: values.planID,
+                  transaction: values.transactionID, // Used to be transactionIdentifier
+                  receipt: values.subreceipts
+              })
+          );
+
+          // Call In-App Purchase SDK
+          const product_id = args.package;
+          const consumable = args.consumable || false;
+          const baseUrl = 'inapppurchase://?package=' + product_id;
+
+          const finalUrl = `${baseUrl}&successful_url=""`
+
+          window.despia = finalUrl;
+      }
+
+      const ctx = {
+        triggerActionEvent: function(event, data) {
+            switch (event) {
+                case "onSuccess":
+                    console.log("Purchase successful!", data);
+                    alert(`Purchase Successful!\nPlan: ${data.plan}\nTransaction ID: ${data.transaction}\nReceipt: ${data.receipt}`);
+                    break;
+                case "onError":
+                    console.error("Purchase failed!");
+                    alert("Purchase failed. Please try again.");
+                    break;
+                default:
+                    console.warn(`Unhandled event: ${event}`, data);
+            }
+        }
+      };
+      
+      function onDespiaClick() {
+          despiaInAppPurchaseV7({ package: "noncon.inapppurchase.example", consumable: false }, ctx);
+      }
+      
   </script>
   </head>
 
@@ -62,6 +167,10 @@
         <a href="inapppurchase://?package=noncon.inapppurchase.example&successful_url=https://webviewgoldtest.github.io/successfulURL.html&disableadmob=true">Non-Consumable In-App Purchase Example (+ disable AdMob)</a><br><br>
         <br>
         <a href="inapppurchase://?package=anothernoncon.inapppurchase.example&successful_url=https://webviewgoldtest.github.io/successfulURL.html">Another non-con test</a><br><br>
+
+        <br>
+
+        <button onclick="onDespiaClick()">Despia IAP Test</button>
 
     </div>
   </body>
