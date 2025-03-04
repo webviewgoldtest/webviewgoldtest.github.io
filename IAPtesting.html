@@ -17,12 +17,6 @@
         alert(restoredProductIDs);
       }
 
-      webviewLog = function(msg) {
-        var encodedMsg = encodeURIComponent(msg); // Ensure safe URL encoding
-        window.location.href = "consolelog://" + encodedMsg;
-      };
-
-
       /**
        * @param {Object} args - Arguments containing package and consumable info
        * @param {Object} ctx - Context object for triggering events
@@ -61,7 +55,7 @@
                       const values = {};
                       const allSet = this.variables.every(name => {
                           const val = window[name];
-                          webviewLog(`val = ${val}`);
+                          alert(`val = ${val}`);
                           if (val === undefined || val === "n/a" || val === null) return false;
                           values[name] = val;
                           return true;
