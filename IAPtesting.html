@@ -55,7 +55,6 @@
                       const values = {};
                       const allSet = this.variables.every(name => {
                           const val = window[name];
-                          alert(`val = ${val}`);
                           if (val === undefined || val === "n/a" || val === null) return false;
                           values[name] = val;
                           return true;
