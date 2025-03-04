@@ -17,7 +17,7 @@
         alert(restoredProductIDs);
       }
 
-      console.log = function(msg) {
+      webviewLog = function(msg) {
         var encodedMsg = encodeURIComponent(msg); // Ensure safe URL encoding
         window.location.href = "consolelog://" + encodedMsg;
       };
@@ -61,7 +61,7 @@
                       const values = {};
                       const allSet = this.variables.every(name => {
                           const val = window[name];
-                          console.log(`val = ${val}`);
+                          webviewLog(`val = ${val}`);
                           if (val === undefined || val === "n/a" || val === null) return false;
                           values[name] = val;
                           return true;
