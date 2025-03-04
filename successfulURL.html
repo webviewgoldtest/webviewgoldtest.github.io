@@ -1,21 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>Successful URL</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="icon" href="images/favicon.png">
-    <script src="functions.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
+<head>
+  <title>Successful URL</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" href="images/favicon.png">
+  <script src="functions.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script>
       function showPurchaseHistory() {
-        alert("Plan ID: " + planID + "\nTransaction ID: " + transactionID + "\nSubreceipts: " + subreceipts);
+          alert("Plan ID: " + planID + "\nTransaction ID: " + transactionID + "\nSubreceipts: " + subreceipts);
       }
 
-    </script>
-  </head>
+      /**
+       * @param {Object} args - Arguments containing package and consumable info
+       * @param {Object} ctx - Context object for triggering events
+       */
+      function despiaInAppPurchaseV7() {
+
+        class VariableTracker {
+          constructor(variables, onReady) {
+              this.variables = variables;
+              this.onReady = onReady;
+              this.triggered = false;
+              this.processing = false;
+
+              // Create tracker element
+              this.tracker = document.createElement('div');
+              this.tracker.style.display = 'none';
+              document.body.appendChild(this.tracker);
+
+              // Setup observer with debounce
+              let timeout;
+              this.observer = new MutationObserver(() => {
+                  clearTimeout(timeout);
+                  timeout = setTimeout(() => this.check(), 100);
+              });
+
+              // Start observing and checking
+              this.observer.observe(this.tracker, { attributes: true });
+              this.check();
+              this.interval = setInterval(() => this.check(), 1000);
+          }
+
+          check() {
+              if (this.processing || this.triggered) return;
+              this.processing = true;
+
+              try {
+                  const values = {};
+                  const allSet = this.variables.every(name => {
+                      const val = window[name];
+                      if (val === undefined || val === "n/a") return false;
+                      values[name] = val;
+                      return true;
+                  });
+
+                  if (allSet && !this.triggered) {
+                      this.triggered = true;
+                      this.cleanup();
+                      this.onReady(values);
+                  }
+              } catch (err) {
+                  console.error("Error tracking variables:", err);
+                  alert("Error processing purchase. Please try again.");
+              }
+
+              this.processing = false;
+          }
+
+          cleanup() {
+              this.observer.disconnect();
+              clearInterval(this.interval);
+              this.tracker.remove();
+          }
+      }
+
+        // Observe Payment Variables
+        new VariableTracker(
+            ['planID', 'transactionID', 'subreceipts'],
+            values => alert(`Purchase Successful!\nPlan: ${values.planID}\nTransaction ID: ${values.transactionID}\nReceipt: ${values.subreceipts}`)
+        );
+          }
+
+      despiaInAppPurchaseV7()
+  </script>
+</head>
 
   <body>
     <div id="main">
