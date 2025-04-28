@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <title>Health Kit Testing (iOS)</title>
+
+    <script>
+
+        // --- JavaScript function called by Swift ---
+        function handleHealthKitResult(identifier, value, unit, error) {
+            console.log("Received HealthKit Result:", { identifier, value, unit, error });
+            const resultDisplay = document.getElementById('resultArea');
+            let alertMessage = "";
+
+            if (error) {
+                alertMessage = `Error fetching ${identifier || 'data'}:\n${error}`;
+                if (resultDisplay) resultDisplay.textContent = alertMessage; // Update display area too
+            } else if (identifier && value !== null && unit !== null) {
+                 // Format value for display if needed (e.g., rounding steps)
+                 let displayValue = value;
+                 if (identifier === 'HKQuantityTypeIdentifierStepCount' || identifier === 'HKQuantityTypeIdentifierFlightsClimbed') {
+                    displayValue = Math.round(value);
+                 } else if (unit === 'km' || unit === 'mi') {
+                    displayValue = value.toFixed(2);
+                 } // Add more formatting as needed
+
+                alertMessage = `Data for ${identifier}:\nValue: ${displayValue}\nUnit: ${unit}`;
+                 if (resultDisplay) resultDisplay.textContent = alertMessage; // Update display area
+            } else {
+                alertMessage = `Received incomplete or unexpected data for ${identifier || 'request'}.`;
+                 if (resultDisplay) resultDisplay.textContent = alertMessage; // Update display area
+            }
+
+            // Display the alert
+            alert(alertMessage);
+        }
+   
+
+        // Function to trigger the read request
+        function requestHealthKitData(identifier) {
+          
+             if ( getMobileOperatingSystem() === 'iOS') {
+                if (identifier) {
+                    const url = 'readhealthkit://' + identifier;
+                    console.log('Requesting HealthKit data:', url);
+                    window.location.href = url; // Trigger the Swift delegate
+                } else {
+                    alert("Error: No HealthKit identifier provided.");
+                }
+            } else {
+                alert("This function requires the iOS app environment.");
+            }
+        }
+
+    </script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="icon" href="images/favicon.png">
-    <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="main">
 
-      <h1>Health Kit Testing (iOS)</h1>
+        <h1>Health Kit Testing (iOS)</h1>
 
-      <a href="index.html">Home</a><br><br><br>
+        <a href="index.html">Home</a><br><br><br>
 
-      <a href="readhealthkit://HKQuantityTypeIdentifierStepCount">readhealthkit://HKQuantityTypeIdentifierStepCount</a>
-      <a href="readhealthkit://HKQuantityTypeIdentifierActiveEnergyBurned">readhealthkit://HKQuantityTypeIdentifierActiveEnergyBurned</a>
-      <a href="readhealthkit://HKQuantityTypeIdentifierHeartRate">readhealthkit://HKQuantityTypeIdentifierHeartRate</a>
+        <h2>Read Data</h2>
+        <p>Click a button to request data. The result will be shown in an alert.</p>
 
-  </body>
+        <button class="button" onclick="requestHealthKitData('HKQuantityTypeIdentifierStepCount')">
+            Read Step Count
+        </button>
+        <button class="button" onclick="requestHealthKitData('HKQuantityTypeIdentifierActiveEnergyBurned')">
+            Read Active Energy
+        </button>
+        <button class="button" onclick="requestHealthKitData('HKQuantityTypeIdentifierHeartRate')">
+            Read Heart Rate ( Sum - Note: Sum may not be typical use)
+        </button>
+        <h2>Result Area</h2>
+        <div id="resultArea">Results from HealthKit will appear here after the alert...</div>
+
+    </div>
+
+</body>
 </html>
