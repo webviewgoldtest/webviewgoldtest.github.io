@@ -217,7 +217,7 @@
         <button id="readStepCount" class="button">Read Step Count</button><br><br>
         <script>
           document.getElementById('readStepCount').addEventListener('click', function(){
-            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
+            if (getMobileOperatingSystem() === 'iOS') {
               const identifier = 'HKQuantityTypeIdentifierStepCount';
               const url = 'readhealthkit://' + identifier;
               console.log('Requesting HealthKit data:', url);
@@ -232,7 +232,7 @@
         <button id="readActiveEnergy" class="button">Read Active Energy</button><br><br>
         <script>
           document.getElementById('readActiveEnergy').addEventListener('click', function(){
-            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
+            if (getMobileOperatingSystem() === 'iOS') {
               const identifier = 'HKQuantityTypeIdentifierActiveEnergyBurned';
               const url = 'readhealthkit://' + identifier;
               console.log('Requesting HealthKit data:', url);
@@ -247,11 +247,8 @@
         <button id="readHeartRate" class="button">Read Heart Rate</button><br><br>
         <script>
           document.getElementById('readHeartRate').addEventListener('click', function(){
-            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
-              // Note: Heart rate is often read differently (e.g., latest sample or average over time)
-              // The current Swift code fetches the *sum* for today, which isn't typical for heart rate.
-              // You might need to adjust the Swift query for heart rate specifically.
-              // Using the current manager will likely return 0 or an error unless summed data exists.
+            if (getMobileOperatingSystem() === 'iOS') {
+            
               const identifier = 'HKQuantityTypeIdentifierHeartRate';
               const url = 'readhealthkit://' + identifier;
               console.log('Requesting HealthKit data:', url);
