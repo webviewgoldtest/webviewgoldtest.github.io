@@ -211,6 +211,58 @@
         }
         </script>
 
+        <h2>HealthKit Data</h2><br>
+        <p>Note: These require the app to have HealthKit permissions.</p>
+
+        <button id="readStepCount" class="button">Read Step Count</button><br><br>
+        <script>
+          document.getElementById('readStepCount').addEventListener('click', function(){
+            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
+              const identifier = 'HKQuantityTypeIdentifierStepCount';
+              const url = 'readhealthkit://' + identifier;
+              console.log('Requesting HealthKit data:', url);
+              window.location.href = url;
+              showAlert('Requested Step Count data from HealthKit. Result will be handled by the app.');
+            } else {
+              showAlert("HealthKit reading requires the iOS WebView browser.");
+            }
+          });
+        </script>
+
+        <button id="readActiveEnergy" class="button">Read Active Energy</button><br><br>
+        <script>
+          document.getElementById('readActiveEnergy').addEventListener('click', function(){
+            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
+              const identifier = 'HKQuantityTypeIdentifierActiveEnergyBurned';
+              const url = 'readhealthkit://' + identifier;
+              console.log('Requesting HealthKit data:', url);
+              window.location.href = url;
+              showAlert('Requested Active Energy data from HealthKit. Result will be handled by the app.');
+            } else {
+              showAlert("HealthKit reading requires the iOS WebView browser.");
+            }
+          });
+        </script>
+
+        <button id="readHeartRate" class="button">Read Heart Rate</button><br><br>
+        <script>
+          document.getElementById('readHeartRate').addEventListener('click', function(){
+            if (isWebViewBrowser() && getMobileOperatingSystem() === 'iOS') {
+              // Note: Heart rate is often read differently (e.g., latest sample or average over time)
+              // The current Swift code fetches the *sum* for today, which isn't typical for heart rate.
+              // You might need to adjust the Swift query for heart rate specifically.
+              // Using the current manager will likely return 0 or an error unless summed data exists.
+              const identifier = 'HKQuantityTypeIdentifierHeartRate';
+              const url = 'readhealthkit://' + identifier;
+              console.log('Requesting HealthKit data:', url);
+              window.location.href = url;
+              showAlert('Requested Heart Rate data from HealthKit. (Note: Query might need adjustment for HR). Result will be handled by the app.');
+            } else {
+              showAlert("HealthKit reading requires the iOS WebView browser.");
+            }
+          });
+        </script>
+
         <script>
             if (isWebViewBrowser()) {
               // Whatever special WebViewGold API triggers you want for the page
