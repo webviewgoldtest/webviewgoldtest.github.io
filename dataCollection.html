@@ -164,12 +164,8 @@
         <script>
           var requestContactPermission = document.getElementById('requestContactPermission')
           requestContactPermission.addEventListener('click', function(){
-            if (isWebViewBrowser()) {
               window.location.href = "requestcontactpermission://";
               alert("contactPermission: " + contactPermission);
-            } else {
-              alert("The WebViewGold browser is needed to perform this function.")
-            }
           })
         </script>
 
@@ -177,14 +173,10 @@
         <script>
           var readContacts = document.getElementById('readContacts')
           readContacts.addEventListener('click', function(){
-            if (isWebViewBrowser()) {
-              //let contacts = null // predefinition is required as readcontacts doesn't use let/const
-              window.location.href = "readcontacts://";
-              alert("contacts: " + JSON.stringify(contacts));
-              //console.log("contacts: " + JSON.stringify(contacts));
-            } else {
-              alert("The WebViewGold browser is needed to perform this function.")
-            }
+            //let contacts = null // predefinition is required as readcontacts doesn't use let/const
+            window.location.href = "readcontacts://";
+            alert("contacts: " + JSON.stringify(contacts));
+            //console.log("contacts: " + JSON.stringify(contacts));
           })
         </script>
 
