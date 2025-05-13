@@ -28,6 +28,20 @@
             alert("HKQuantityTypeIdentifierStepCount: " + HKQuantityTypeIdentifierStepCount);
           })
         </script>
+
+        <br>
+        <h2>Write Data</h2>
+        <p>Hardcoded data at the moment to test permissions</p>
+
+        <button class="button" id="writeStepCount">Write step count</button>
+        <script>
+          var readStepCount = document.getElementById('writeStepCount')
+          readStepCount.addEventListener('click', function(){
+            window.location.href = "writehealthkit://HKQuantityTypeIdentifierStepCount//100";
+            //alert("HKQuantityTypeIdentifierStepCount: " + HKQuantityTypeIdentifierStepCount);
+          })
+        </script>
+
     </div>
 
 </body>
