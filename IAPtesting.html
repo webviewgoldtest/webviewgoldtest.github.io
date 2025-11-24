@@ -10,8 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
       function showPurchaseHistory() {
-        alert("Plan ID: " + planID + "\nTransaction ID: " + transactionID + "\nSubreceipts: " + subreceipts);
-      }
+        const history = window.purchaseHistory;
+
+        if (!history) {
+        alert("No purchase history found yet.\n\nMake sure you've tapped 'Get in app purchase history' in the app so the native code can inject it.");
+        return;
+        }
+
+        // Pretty-print JSON
+        alert(JSON.stringify(history, null, 2));
+    }
 
       function showRestoredPurchases() {
         alert(restoredProductIDs);
