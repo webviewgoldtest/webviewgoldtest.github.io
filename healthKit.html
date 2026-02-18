@@ -17,7 +17,7 @@
 
         <a href="index.html">Home</a><br><br><br>
 
-        <h2>Read Data</h2>
+        <h2>Read Data (iOS) </h2>
         <p>Click a button to request data. The result will be shown in an alert.</p>
 
         <button class="button" id="readStepCount">Read Step Count</button>
@@ -30,7 +30,7 @@
         </script>
 
         <br>
-        <h2>Write Data</h2>
+        <h2>Write Data (iOS) </h2>
         <p>Hardcoded data at the moment to test permissions</p>
 
         <button class="button" id="writeStepCount">Write step count</button>
@@ -38,6 +38,29 @@
           var readStepCount = document.getElementById('writeStepCount')
           readStepCount.addEventListener('click', function(){
             window.location.href = "writehealthkit://HKQuantityTypeIdentifierStepCount//100";
+            //alert("HKQuantityTypeIdentifierStepCount: " + HKQuantityTypeIdentifierStepCount);
+          })
+        </script>
+
+        <h2>Read Data (android)) </h2>
+        <button class="button" id="readStepCountA">Read Step Count</button>
+        <script>
+          var readStepCountA = document.getElementById('readStepCountA')
+          readStepCountA.addEventListener('click', function(){
+            window.location.href = "readhealthkit://StepsRecord";
+            alert("StepsRecord: " + StepsRecord);
+          })
+        </script>
+
+        <br>
+        <h2>Write Data (android) </h2>
+        <p>Hardcoded data at the moment to test permissions</p>
+
+        <button class="button" id="writeStepCountA">Write step count</button>
+        <script>
+          var readStepCountA = document.getElementById('writeStepCountA')
+          readStepCountA.addEventListener('click', function(){
+            window.location.href = "writehealthkit://StepsRecord//100";
             //alert("HKQuantityTypeIdentifierStepCount: " + HKQuantityTypeIdentifierStepCount);
           })
         </script>
