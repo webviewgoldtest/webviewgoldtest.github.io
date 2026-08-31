@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Apple Watch Testing (iOS)</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="main">
+      <h1>Apple Watch Testing (iOS)</h1>
+
+      <a href="index.html">Home</a><br><br><br>
+
+      <h2>Configure Apple Watch App</h2>
+      <p>Enter a feed URL and title, then tap the button to configure the Apple Watch app.</p>
+
+      <p>
+        <label for="feedURL">Feed URL</label><br>
+        <input type="url" id="feedURL" value="https://feeds.bbci.co.uk/news/rss.xml" required>
+      </p>
+
+      <p>
+        <label for="watchTitle">Title</label><br>
+        <input type="text" id="watchTitle" value="Latest News" required>
+      </p>
+
+      <button class="button" id="configureAppleWatch">Configure Apple Watch App</button>
+    </div>
+
+    <script>
+      document.getElementById('configureAppleWatch').addEventListener('click', function () {
+        var feedURL = document.getElementById('feedURL').value.trim();
+        var title = document.getElementById('watchTitle').value.trim();
+
+        if (!feedURL || !title) {
+          alert('Please enter both a feed URL and a title.');
+          return;
+        }
+
+        window.location.href =
+          `updateapplewatchapp://configure?url=${encodeURIComponent(feedURL)}&title=${encodeURIComponent(title)}`;
+      });
+    </script>
+  </body>
+
+</html>
